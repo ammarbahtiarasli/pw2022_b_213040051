@@ -19,3 +19,5 @@ function salam($waktu = "datang", $nama = "Admin")
 </body>
 
 </html>
+
+<h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta quibusdam provident odio iure, culpa laudantium earum libero, eum vero sapiente incidunt quae, mollitia fugit ab. Est assumenda nulla totam adipisci!</h1>
