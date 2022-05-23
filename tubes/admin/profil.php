@@ -1,33 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require '../layouts/header.php';
+require '../components/navbar_admin.php';
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil - Sejarah Teknologi</title>
+<!-- Page Profil-->
+<section class="padding-y bg-light">
+    <div class="container">
 
-    <!-- Bootstrap css -->
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <div class="row">
+            <aside class="col-lg-3 col-xl-3">
+                <!--  COMPONENT MENU LIST  -->
+                <nav class="nav flex-lg-column nav-pills mb-4">
+                    <a class="nav-link active" href="#">Profil</a>
+                    <a class="nav-link" href="../users/index.php">Keluar</a>
+                </nav>
+                <!--   COMPONENT MENU LIST END .//   -->
+            </aside>
+            <main class="col-lg-9">
+                <article class="card">
+                    <div class="card-body">
 
-    <!-- Custom css -->
-    <link href="../css/ui.css" rel="stylesheet" type="text/css" />
-    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="row gx-3">
+                                        <div class="col-lg-12  mb-3">
+                                            <label class="form-label">Nama</label>
+                                            <input class="form-control" type="text" placeholder="Admin" readonly>
+                                        </div> <!-- col .// -->
 
-    <!-- Font awesome 5 -->
-    <link href="../fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
-</head>
+                                        <div class="col-lg-12  mb-3">
+                                            <label class="form-label">Email</label>
+                                            <input class="form-control" type="text" placeholder="Admin@gmail.com" readonly>
+                                        </div> <!-- col .// -->
 
-<body>
-    <?php include('../components/navbar_admin.php') ?>
-    <h1>profil</h1>
-    <?php include('../components/footer.php') ?>
-</body>
+                                        <div class="col-lg-12  mb-3">
+                                            <label class="form-label">Level</label>
+                                            <input class="form-control" type="text" placeholder="Admin@gmail.com" readonly>
+                                        </div> <!-- col .// -->
+                                    </div> <!-- row.// -->
+                                </div> <!-- col.// -->
+                                <aside class="col-lg-4">
+                                    <figure class="text-lg-center">
+                                        <h6>Foto</h6>
+                                        <img class="img-lg img-avatar" src="../img/logo.png" alt="User Photo">
+                                    </figure>
+                                </aside> <!-- col.// -->
+                            </div> <!-- row.// -->
+                        </form>
 
-<!-- Bootstrap js -->
-<script src="../js/bootstrap.bundle.min.js"></script>
+                        <hr class="my-4">
 
-<!-- Custom js -->
-<script src="../js/script.js?v=1.0"></script>
+                        <div class="row" style="max-width:920px">
+                            <div class="col-md">
+                                <article class="box mb-3 bg-light">
+                                    <a class="btn float-end btn-light btn-sm" href="#">Ganti</a>
+                                    <p class="title mb-0">Ganti Password</p>
+                                </article>
+                            </div> <!-- col.// -->
+                        </div> <!-- row.// -->
 
-</html>
+
+                    </div> <!-- card-body .// -->
+                </article> <!-- card .// -->
+            </main>
+        </div> <!-- row.// -->
+
+        <br><br>
+
+
+    </div> <!-- container .//  -->
+</section>
+<?php
+require '../layouts/script.php';
+require '../components/footer.php';
+?>

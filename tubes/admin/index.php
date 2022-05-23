@@ -1,33 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require '../layouts/header.php';
+require '../components/navbar_admin.php';
+?>
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <h2>Hai Admin !</h2>
+            <hr>
+            <p>Selamat datang di halaman admin, di sini anda dapat mengelola data sejarah teknologi.</p>
+            <p>Anda dapat menambahkan data sejarah teknologi, mengubah data sejarah teknologi, dan menghapus data sejarah teknologi.</p>
+            <p>Anda dapat mencari data sejarah teknologi berdasarkan kategori.</p>
+            <p>Anda dapat mengunduh data sejarah teknologi dalam format PDF.</p>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Sejarah Teknologi</title>
-
-    <!-- Bootstrap css -->
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
-
-    <!-- Custom css -->
-    <link href="../css/ui.css" rel="stylesheet" type="text/css" />
-    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
-
-    <!-- Font awesome 5 -->
-    <link href="../fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
-</head>
-
-<body>
-    <?php include('../components/navbar_admin.php') ?>
-
-    <?php include('../components/footer.php') ?>
-</body>
-
-<!-- Bootstrap js -->
-<script src="../js/bootstrap.bundle.min.js"></script>
-
-<!-- Custom js -->
-<script src="../js/script.js?v=1.0"></script>
-
-</html>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col mb-5"></div>
+        <center>
+            <img class="sponsor" src="../img/logo-unpas.png" width="75px" alt="" />
+            <img class="sponsor ms-3" src="../img/tif.png" width="75px" alt="" />
+        </center>
+    </div>
+</div>
+<?php
+require '../components/footer.php';
+require '../layouts/script.php';
+?>
