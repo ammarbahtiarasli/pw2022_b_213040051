@@ -36,6 +36,30 @@ function tambah($data)
     return mysqli_affected_rows($conn);
 }
 
+function ubah_sejarah($data)
+{
+    $conn = Koneksi();
+
+    $id_sejarah = $data["id_sejarah"];
+    $judul = htmlspecialchars($data["judul"]);
+    $tanggal = htmlspecialchars($data["tanggal"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+    $body = htmlspecialchars($data["body"]);
+    $kategori = htmlspecialchars($data["kategori"]);
+
+    $query = "UPDATE sejarah_teknologi SET
+                judul = '$judul',
+                tanggal = '$tanggal',
+                gambar = '$gambar',
+                body = '$body',
+                id_kategori = '$kategori'
+                WHERE id_sejarah = $id_sejarah
+                ";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return mysqli_affected_rows($conn);
+}
+
 function hapus($id_sejarah)
 {
     $conn = Koneksi();
@@ -44,4 +68,16 @@ function hapus($id_sejarah)
     mysqli_query($conn, $query) or die(mysqli_error(($conn)));
 
     return mysqli_affected_rows($conn);
+}
+
+function cari($keyword)
+{
+    $conn = Koneksi();
+
+    $query = "SELECT * FROM sejarah_teknologi NATURAL JOIN kategori
+                WHERE
+                judul LIKE '%$keyword%' OR
+                nama_kategori LIKE '%$keyword%'
+                ";
+    return query($query);
 }

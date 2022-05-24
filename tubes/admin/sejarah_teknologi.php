@@ -3,14 +3,19 @@ require '../functions.php';
 require '../layouts/header.php';
 require '../components/navbar_admin.php';
 
-$sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
+$sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori ORDER BY id_sejarah DESC");
+
+// tombol cari ditekan
+if (isset($_POST["cari"])) {
+    $sejarah = cari($_POST["keyword"]);
+}
 ?>
 
 <div class="container my-3">
     <h2>Daftar Sejarah Teknologi</h2>
     <div class="d-flex justify-content-between col-lg col-sm-12 mt-3">
         <a href="../admin/tambah_sejarah.php" class="btn btn-success-light">Tambah Data Sejarah</a>
-        <form action="#">
+        <form action="#" method="POST">
             <div class="input-group">
                 <select class="form-select bg-light" style="max-width:30%">
                     <option>Semua</option>
@@ -20,7 +25,8 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
                     <option>Komputer</option>
                     <option>Lainnya</option>
                 </select>
-                <input type="text" placeholder="Cari ..." class="form-control" name="">
+                <input type="text" placeholder="Cari ..." name="keyword" class="form-control" autofocus autocomplete="off">
+                <button type="submit" name="cari" hidden></button>
             </div>
         </form>
         <a href="#" class="btn btn-light">Export PDF</a>
@@ -34,21 +40,24 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
                         <th scope="col">#</th>
                         <th scope="col">Gambar</th>
                         <th scope="col">Judul</th>
-                        <th scope="col">Body</th>
+                        <th scope="col" width="500px">Body</th>
                         <th scope="col">Kategori</th>
+                        <th scope="col">Tanggal</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 1; ?>
                     <?php foreach ($sejarah as $s) : ?>
                         <tr>
-                            <th scope="row"><?= $s['id_sejarah']; ?></th>
-                            <td><?= $s['gambar']; ?></td>
+                            <th scope="row"><?= $i++ ?></th>
+                            <td><img src="../img/<?= $s['gambar']; ?>" width="125px" alt="gambar"></td>
                             <td><?= $s['judul']; ?></td>
-                            <td><?= $s['body']; ?></td>
+                            <td><?= (str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body']); ?></td>
                             <td><?= $s['nama_kategori']; ?></td>
+                            <td><?= $s['tanggal']; ?></td>
                             <td class="d-flex">
-                                <a href="" class="btn btn-warning-light">Ubah</a>
+                                <a href="ubah_sejarah.php?id_sejarah=<?= $s["id_sejarah"]; ?>" class="btn btn-warning-light">Ubah</a>
                                 <a href="hapus_sejarah.php?id_sejarah=<?= $s["id_sejarah"]; ?>" class="btn btn-danger-light ms-2" onclick="return confirm('yakin ?');">Hapus</a>
                             </td>
                         </tr>

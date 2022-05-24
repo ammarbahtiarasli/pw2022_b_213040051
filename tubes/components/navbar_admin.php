@@ -8,7 +8,7 @@
 
             <div class="order-lg-last flex-shrink-0">
                 <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span>Admin</span>
+                    <span><i class="fa fa-user-circle" aria-hidden="true"></i> Admin</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li> <a class="dropdown-item" href="profil.php">Profil</a> </li>

@@ -2,10 +2,15 @@
 require '../functions.php';
 require '../layouts/header.php';
 require '../components/navbar.php';
-$sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
+$sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori ORDER BY id_sejarah DESC");
+
+// tombol cari ditekan
+if (isset($_POST["cari"])) {
+    $sejarah = cari($_POST["keyword"]);
+}
 ?>
 
-<!-- =================== COMPONENT 1 ====================== -->
+<!-- Header -->
 <main class="bg-dark p-5" style="min-height:280px; background-size: cover; background-position: center; background-image: url('../img/bannerr.jpg');">
 
     <header class="text-center mt-5">
@@ -13,7 +18,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
             <p class="text-white">Discover the best history in the World</p>
     </header>
 
-    <form class="mx-auto w-100 mb-3" style="max-width: 720px">
+    <form class="mx-auto w-100 mb-3" action="" method="POST" style="max-width: 720px">
         <div class="row g-2 w-100">
             <div class="col flex-grow">
                 <div class="input-group">
@@ -25,14 +30,15 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
                         <option>Komputer</option>
                         <option>Lainnya</option>
                     </select>
-                    <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="">
+                    <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="keyword" autofocus autocomplete="off">
+                    <button type="submit" name="cari" hidden></button>
                 </div>
             </div> <!-- col.// -->
         </div> <!-- row.// -->
     </form>
 
 </main>
-<!-- =================== COMPONENT 1 .// ================== -->
+<!-- End Header -->
 
 <!-- Page Beranda -->
 <section class="padding-y bg-light">
@@ -46,16 +52,16 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
                     <article class="card card-product-list product-lg">
                         <div class="row g-0">
                             <aside class="col-xl-3 col-md-4">
-                                <a href="../users/detail.php" class="img-wrap">
-                                    <img src="../img/konten.jpg">
+                                <a href="../users/detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="img-wrap">
+                                    <img src="../img/<?= $s['gambar']; ?>">
                                 </a>
                             </aside> <!-- col.// -->
                             <div class="col-xl-9 col-md-8 border-start">
                                 <div class="card-body">
-                                    <a href="../users/detail.php" class="h5 mb-1 title"><?= $s['judul']; ?></a>
-                                    <p class="mb-1 text-muted"> 28 Mei 1990</p>
-                                    <p class="text-muted"><?= $s['body']; ?></p>
-                                    <a href="../users/detail.php">Detail</a>
+                                    <a href="../users/detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
+                                    <p class="mb-1 text-muted"><?= $s['tanggal']; ?></p>
+                                    <p class="text-muted"><?= (str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body']); ?></p>
+                                    <a href="../users/detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +77,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori");
                         <h5 class="card-title mb-3">Populer</h5>
 
                         <article class="itemside mb-3">
-                            <a href="../users/detail.php" class="aside"><img src="../img/laravel.png" class="img-md img-thumbnail"></a>
+                            <a href="../users/detail.php" class="aside"><img src="../img/nophoto.png" class="img-md img-thumbnail"></a>
                             <div class="info">
                                 <a href="../users/detail.php" class="title mb-1">Sejarah tercipta nya adam dan hawa</a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>

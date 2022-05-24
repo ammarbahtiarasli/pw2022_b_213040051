@@ -1,6 +1,14 @@
 <?php
+require '../functions.php';
 require '../layouts/header.php';
 require '../components/navbar.php';
+
+// ambil data dari uRL
+$id_sejarah = $_GET["id_sejarah"];
+
+// query data sejarah berdasarkan id_sejarah
+$sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id_sejarah = $id_sejarah")[0];
+
 ?>
 
 <!-- Page Detail Sejarah -->
@@ -8,28 +16,18 @@ require '../components/navbar.php';
     <div class="container">
         <div class="row">
             <div class="col">
-                <main class="bg-dark p-5" style="min-height:350px; background-size: cover; background-position: center; background-image: url('../img/bannerr.jpg');">
+                <main class="bg-dark p-5" style="min-height:500px; background-image: url('../img/<?= $sejarah['gambar']; ?>');">
                 </main>
                 <hr>
                 <section class="padding-y">
                     <div class="container">
 
                         <header class="section-heading">
-                            <h2 class="section-title">First section name</h2>
-                            <p class="lead">Life is easy why make it hard? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+                            <h2 class="section-title"><?= $sejarah['judul']; ?></h2>
+                            <p class="lead"><?= $sejarah['nama_kategori']; ?> - <?= $sejarah['tanggal']; ?></p>
                         </header>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <p>Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p><?= $sejarah['body']; ?></p>
 
                         <a href="javascript: history.back()" class="btn btn-light"> &laquo; Kembali</a>
 
