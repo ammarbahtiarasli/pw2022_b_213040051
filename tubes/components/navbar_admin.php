@@ -36,9 +36,6 @@
                         <a class="nav-link" href="../admin/kategori.php"> Kategori </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../admin/level.php"> Level </a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="../admin/users.php"> Pengguna </a>
                     </li>
                 </ul>
@@ -66,9 +63,6 @@
                         </li>
                         <li>
                             <a class="dropdown-item" href="../admin/kategori.php">Kategori</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="../admin/level.php">Level</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="../admin/users.php">Pengguna</a>

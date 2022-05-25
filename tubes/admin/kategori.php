@@ -8,7 +8,7 @@ require '../components/navbar_admin.php';
 <div class="container my-3">
     <h2>Daftar Kategori</h2>
     <div class="d-flex justify-content-between col-lg mt-3">
-        <a href="#" class="btn btn-success-light">Tambah Data Kategori</a>
+        <a href="#" class="btn btn-success-light">Data Kategori</a>
         <form action="#">
             <div class="input-group">
                 <input type="search" class="form-control" placeholder="Cari  ...">

@@ -21,7 +21,7 @@ $kategori = query("SELECT * FROM kategori");
     <a href="javascript: history.back()" class="btn btn-light"> &laquo; Kembali ke Daftar Sejarah</a>
     <div class="row mt-3">
         <div class="col-sm-12 col-lg-8">
-            <form action="" method="POST" autocomplete="off">
+            <form action="" method="POST" autocomplete="off" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="judul" class="form-label">Judul</label>
                     <input type="text" class="form-control" id="judul" name="judul" required autofocus>
