@@ -46,6 +46,7 @@ $kategori = query("SELECT * FROM kategori");
                 <div class="mb-4">
                     <label for="gambar" class="form-label">Gambar</label>
                     <input type="file" class="form-control" id="gambar" name="gambar">
+                    <p>Extension upload file : .jpg, .png, .jpeg</p>
                 </div>
                 <button type="submit" name="tambah" class="btn btn-success-light">Tambah Data Sejarah</button>
             </form>

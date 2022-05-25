@@ -54,10 +54,11 @@
         <!-- ==============COMPONENT MENU HOR =============== -->
         <div class="card p-3 nav-blur">
             <nav class="nav nav-pills mx-auto">
-                <a class="nav-link active" aria-current="page" href="../admin/index.php">Dashboard</a>
+                <a class="nav-link mx-2 active" aria-current="page" href="../users/index.php">
+                    <small class="text">Dashboard</small> </a>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Kelola Tabel
+                        <small class="text">Data Tabel</small>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
