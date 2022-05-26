@@ -1,5 +1,24 @@
 <?php
 require './layouts/header.php';
+require 'functions.php';
+
+$conn = Koneksi();
+
+$level = query("SELECT * FROM level");
+
+if (
+    isset($_POST["register"])
+) {
+
+    if (register($_POST) > 0) {
+        echo "<script>
+				alert('user baru berhasil ditambahkan!');
+                document.location.href = 'login.php';
+			  </script>";
+    } else {
+        echo mysqli_error($conn);
+    }
+}
 ?>
 <!-- Navbar register -->
 <header class="section-header border-bottom sticky-top">
@@ -17,22 +36,36 @@ require './layouts/header.php';
 <div class="card shadow mx-auto" style="max-width:400px; margin-top:40px;">
     <div class="card-body">
         <h2 class="card-title mb-4">Daftar</h2>
-        <form>
+        <form action="" method="POST">
             <div class="mb-3">
-                <label class="form-label">Nama*</label>
-                <input class="form-control" placeholder="nama" type="text">
+                <label class="form-label">username*</label>
+                <input class="form-control" placeholder="username" type="text" name="username" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Email*</label>
-                <input class="form-control" placeholder="email" type="email">
+                <label class="form-label">Email</label>
+                <input class="form-control" placeholder="email" type="email" name="email">
             </div>
             <div class="mb-3">
                 <label class="form-label">Password*</label>
-                <input class="form-control" placeholder="password" type="password">
+                <input class="form-control" placeholder="password" type="password" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Konfirmasi Password</label>
+                <input class="form-control" placeholder="password" type="password" name="password2">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Daftar sebagai :</label>
+                <select class="form-select" name="id_level">
+                    <option value="2" selected>default</option>
+                    <?php foreach ($level as $l) : ?>
+                        <option value="<?= $l['id_level']; ?>" disabled><?= $l['nama_level']; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
             <div class="mb-4">
-                <button type="submit" class="btn btn-success-light w-100"> Daftar </button>
+                <button type="submit" name="register" class="btn btn-success-light w-100"> Daftar </button>
                 <a class=" mt-3 btn btn-light w-100" href="index.php"> Kembali </a>
+            </div>
         </form>
         <hr>
         <p class="text-center mb-2">Sudah punya akun ? <a href="login.php">Masuk</a></p>

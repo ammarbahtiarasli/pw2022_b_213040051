@@ -16,12 +16,12 @@ if (isset($_POST["ubah"])) {
     if (ubah_sejarah($_POST) > 0) {
         echo "<script>
             alert('data berhasil diubah');
-            document.location.href = '../admin/sejarah_teknologi.php';
+            document.location.href = 'sejarah_teknologi.php';
             </script>";
     } else {
         echo "<script>
             alert('data gagal diubah');
-            document.location.href = '../admin/sejarah_teknologi.php';
+            document.location.href = 'sejarah_teknologi.php';
             </script>";
     }
 }
@@ -35,8 +35,9 @@ $kategori = query("SELECT * FROM kategori");
     <a href="javascript: history.back()" class="btn btn-light"> &laquo; Kembali ke Daftar Sejarah</a>
     <div class="row mt-3">
         <div class="col-sm-12 col-lg-8">
-            <form action="" method="POST" autocomplete="off">
+            <form action="" method="POST" autocomplete="off" enctype="multipart/form-data">
                 <input type="hidden" name="id_sejarah" value="<?= $sejarah['id_sejarah']; ?>">
+                <input type="hidden" name="gambarLama" value="<?= $sejarah['gambar']; ?>">
                 <div class="mb-3">
                     <label for="judul" class="form-label">Judul</label>
                     <input type="text" class="form-control" id="judul" name="judul" required autofocus value="<?= $sejarah['judul']; ?>">
@@ -59,8 +60,9 @@ $kategori = query("SELECT * FROM kategori");
                     </select>
                 </div>
                 <div class="mb-4">
+                    <img class="mb-2" src="./img/<?= $sejarah['gambar']; ?>" alt="" width="150px"> <br>
                     <label for="gambar" class="form-label">Gambar</label>
-                    <input type="file" class="form-control" id="gambar" name="gambar" value="<?= $sejarah['gambar']; ?>">
+                    <input type="file" class="form-control" id="gambar" name="gambar">
                 </div>
                 <button type=" submit" name="ubah" class="btn btn-success-light">Ubah Data Sejarah</button>
             </form>

@@ -7,8 +7,22 @@
             </a>
 
             <div class="order-lg-last flex-shrink-0">
-                <a class="btn btn-success-light" href="login.php">Masuk </a>
-                <a class="btn btn-light" href="register.php">Daftar </a>
+                <?php if (!isset($_SESSION['login'])) : ?>
+                    <a class="btn btn-success-light" href="login.php">Masuk </a>
+                    <a class="btn btn-light" href="register.php">Daftar </a>
+                <?php else : ?>
+                    <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span><i class="fa fa-user-circle" aria-hidden="true"></i> Admin</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li> <a class="dropdown-item" href="profil.php">Profil</a> </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li> <a class="dropdown-item" href="logout.php">Keluar</a> </li>
+                    </ul>
+                <?php endif ?>
+
                 <div class="d-none d-lg-block">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_main" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
