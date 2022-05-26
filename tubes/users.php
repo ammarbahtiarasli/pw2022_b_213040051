@@ -1,13 +1,23 @@
 <?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+require 'functions.php';
 require './layouts/header.php';
 require './components/navbar_admin.php';
+
+$users = query("SELECT * FROM users NATURAL JOIN level ORDER BY id_user DESC");
+
 ?>
 
 <!-- Page Users Admin -->
 <div class="container my-3">
     <h2>Daftar Pengguna</h2>
     <div class="d-flex justify-content-between col-lg col-md col-12 mt-3">
-        <a href="tambah_user.php" class="btn btn-success-light">Tambah Data Pengguna</a>
         <form action="#">
             <div class="input-group">
                 <select class="form-select bg-light" style="max-width:30%">
@@ -30,24 +40,26 @@ require './components/navbar_admin.php';
                         <th scope="col">Gambar</th>
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Password</th>
                         <th scope="col">Level</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>gambar.jpg</td>
-                        <td>Judul</td>
-                        <td>Body</td>
-                        <td>Body</td>
-                        <td>Kategori</td>
-                        <td>
-                            <a href="" class="btn btn-warning-light">Ubah</a>
-                            <a href="" class="btn btn-danger-light">Hapus</a>
-                        </td>
-                    </tr>
+                    <?php foreach ($users as $u) : ?>
+                        <tr>
+                            <th scope="row"><?= $u['id_user']; ?></th>
+                            <td>
+                                <img src="./img/nophoto.png" width="125px" alt="gambar">
+                            </td>
+                            <td><?= $u['username']; ?></td>
+                            <td><?= $u['email']; ?></td>
+                            <td><?= $u['nama_level']; ?></td>
+                            <td>
+                                <a href="" class="btn btn-warning-light">Ubah</a>
+                                <a href="" class="btn btn-danger-light">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 

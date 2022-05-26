@@ -153,6 +153,7 @@ function register($data)
     $conn = Koneksi();
 
     $username = strtolower(stripslashes($data["username"]));
+    $email = strtolower($data["email"]);
     $password = mysqli_real_escape_string($conn, $data["password"]);
     $password2 = mysqli_real_escape_string($conn, $data["password2"]);
     $id_level = ($data["id_level"]);
@@ -180,7 +181,7 @@ function register($data)
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan userbaru ke database
-    mysqli_query($conn, "INSERT INTO users VALUES('', '$username', '', '$password', '', '$id_level')");
+    mysqli_query($conn, "INSERT INTO users VALUES('', '$username', '$email', '$password', '', '$id_level')");
 
     return mysqli_affected_rows($conn);
 }

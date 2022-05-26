@@ -7,7 +7,7 @@ if (!isset($_SESSION["login"])) {
 }
 
 require './layouts/header.php';
-require './components/navbar.php';
+require './components/navbar_admin.php';
 ?>
 
 <!-- Page Profil-->
@@ -19,7 +19,7 @@ require './components/navbar.php';
                 <!--  COMPONENT MENU LIST  -->
                 <nav class="nav flex-lg-column nav-pills mb-4">
                     <a class="nav-link active" href="#">Profil</a>
-                    <a class="nav-link" href="logout.php">Keluar</a>
+                    <a class="nav-link" href="index.php">Keluar</a>
                 </nav>
                 <!--   COMPONENT MENU LIST END .//   -->
             </aside>
@@ -32,7 +32,7 @@ require './components/navbar.php';
                                 <div class="col-lg-8">
                                     <div class="row gx-3">
                                         <div class="col-lg-12  mb-3">
-                                            <label class="form-label">Username</label>
+                                            <label class="form-label">Nama</label>
                                             <input class="form-control" type="text" placeholder="Admin" readonly>
                                         </div> <!-- col .// -->
 

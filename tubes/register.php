@@ -21,7 +21,7 @@ if (
 }
 ?>
 <!-- Navbar register -->
-<header class="section-header border-bottom sticky-top">
+<header class="section-header border-bottom sticky-top" id="scrollNavbar">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -56,7 +56,7 @@ if (
             <div class="mb-3">
                 <label class="form-label">Daftar sebagai :</label>
                 <select class="form-select" name="id_level">
-                    <option value="2" selected>default</option>
+                    <option value="2" selected>default (admin)</option>
                     <?php foreach ($level as $l) : ?>
                         <option value="<?= $l['id_level']; ?>" disabled><?= $l['nama_level']; ?></option>
                     <?php endforeach; ?>

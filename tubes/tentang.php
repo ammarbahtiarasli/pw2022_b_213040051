@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
 
 require './layouts/header.php';
 require './components/navbar.php';
@@ -29,7 +25,7 @@ require './components/navbar.php';
                 <div class="row justify-content-center align-items-center">
                     <div class="col-lg-8">
                         <!-- ================ COMPONENT FAQ ================ -->
-                        <div class="card my-5">
+                        <div class="card my-3">
                             <div class="card-body">
                                 <h4 class="card-title">FAQs</h4>
 
@@ -38,16 +34,12 @@ require './components/navbar.php';
                                     <article class="accordion-item">
                                         <h4 class="accordion-header">
                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#content_faq_1">
-                                                Kenapa Website ini dibuat ?
+                                                Website apa ini ?
                                             </button>
                                         </h4>
                                         <div id="content_faq_1" class="accordion-collapse collapse show" data-bs-parent="#accordion_faq">
                                             <div class="accordion-body">
-                                                The answer is simple just like lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                                cillum dolore eu fugiat nulla pariatur.
+                                                Website yang menyediakan berbagai sejarah teknologi dan informasi.
                                             </div>
                                         </div>
                                     </article> <!-- accordion-item.// -->
@@ -59,23 +51,19 @@ require './components/navbar.php';
                                         </h4>
                                         <div id="content_faq_2" class="accordion-collapse collapse" data-bs-parent="#accordion_faq">
                                             <div class="accordion-body">
-                                                Placeholder content for this accordion, which is intended to demonstrate the class. This is the second item's accordion body. Let's imagine this being filled with some actual content. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat.
+                                                Website ini menggunakan teknologi HTML, CSS, PHP, MySQL, dan Bootstrap 5.
                                             </div>
                                         </div>
                                     </article> <!-- accordion-item.// -->
                                     <article class="accordion-item">
                                         <h4 class="accordion-header">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#content_faq_3">
-                                                Kritik dan Saran ?
+                                                Kenapa website ini dibuat ?
                                             </button>
                                         </h4>
                                         <div id="content_faq_3" class="accordion-collapse collapse" data-bs-parent="#accordion_faq">
                                             <div class="accordion-body">
-                                                Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.
+                                                Karena website ini adalah sebuah tugas besar matakuliah Pemrograman Web yang dibuat oleh Ahmad Ammar Bahtiar.
                                             </div>
                                         </div>
                                     </article> <!-- accordion-item.// -->
@@ -87,6 +75,14 @@ require './components/navbar.php';
                         <!-- ================ COMPONENT FAQ END .// ================ -->
                     </div> <!-- col.// -->
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <center>
+                    <img class="sponsor" src="./img/logo-unpas.png" width="75px" alt="" />
+                    <img class="sponsor ms-3" src="./img/tif.png" width="75px" alt="" />
+                </center>
             </div>
         </div>
     </div>

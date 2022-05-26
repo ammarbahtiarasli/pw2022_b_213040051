@@ -1,5 +1,5 @@
 <!-- Navbar Admin -->
-<header class="section-header border-bottom sticky-top">
+<header class="section-header border-bottom " id="scrollNavbar">
     <nav class="navbar navbar-expand-lg navbar-light nav-blur ">
         <div class="container">
             <a class="navbar-brand" href="index.php">
@@ -8,14 +8,14 @@
 
             <div class="order-lg-last flex-shrink-0">
                 <?php if (!isset($_SESSION['login'])) : ?>
-                    <a class="btn btn-success-light" href="login.php">Masuk </a>
-                    <a class="btn btn-light" href="register.php">Daftar </a>
+                    <a class="btn btn-success-light" href="login.php?login">Masuk </a>
+                    <a class="btn btn-light" href="register.php?register">Daftar </a>
                 <?php else : ?>
                     <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <span><i class="fa fa-user-circle" aria-hidden="true"></i> Admin</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li> <a class="dropdown-item" href="profil.php">Profil</a> </li>
+                        <li> <a class="dropdown-item" href="profil_admin.php?profil">Profil</a> </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -32,16 +32,16 @@
             <div class="collapse navbar-collapse d-none d-lg-block" id="navbar_main">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index_admin.php"> Dashboard </a>
+                        <a class="nav-link" href="index_admin.php?dashboard"> Dashboard </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sejarah_teknologi.php"> Sejarah Teknologi </a>
+                        <a class="nav-link" href="sejarah_teknologi.php?sejarah"> Sejarah Teknologi </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="kategori.php"> Kategori </a>
+                        <a class="nav-link" href="kategori.php?kategori"> Kategori </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="users.php"> Pengguna </a>
+                        <a class="nav-link" href="users.php?pengguna"> Pengguna </a>
                     </li>
                 </ul>
             </div>

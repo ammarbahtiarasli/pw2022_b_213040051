@@ -5,7 +5,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sejarah Teknologi</title>
+    <title>
+        <?php
+        if (isset($_GET["login"])) {
+            echo "Masuk - Sejarah Teknologi";
+        } else if (isset($_GET["register"])) {
+            echo "Daftar - Sejarah Teknologi";
+        } else if (isset($_GET["tentang"])) {
+            echo "Tentang - Sejarah Teknologi";
+        } else if (isset($_GET["id_sejarah"])) {
+            echo "Detail - Sejarah teknologi";
+        } else if (isset($_GET["dashboard"])) {
+            echo "Dashboard - Sejarah Teknologi";
+        } else if (isset($_GET["sejarah"])) {
+            echo "Data Sejarah - Sejarah Teknologi";
+        } else if (isset($_GET["tambah_sejarah"])) {
+            echo "Tambah Sejarah - Sejarah Teknologi";
+        } else if (isset($_GET["kategori"])) {
+            echo "Data Kategori - Sejarah Teknologi";
+        } else if (isset($_GET["pengguna"])) {
+            echo "Data Pengguna - Sejarah Teknologi";
+        } else if (isset($_GET["profil"])) {
+            echo "Profil - Sejarah Teknologi";
+        } else {
+            echo "Beranda - Sejarah Teknologi";
+        }
+        ?>
+    </title>
 
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="./img/logo.png">
@@ -27,6 +53,11 @@
 
     <!-- mycss -->
     <link rel="stylesheet" href="./css/style.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 4.5rem;
+        }
+    </style>
 </head>
 
 <body>

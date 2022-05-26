@@ -1,15 +1,17 @@
 <?php
 session_start();
-
-if (!isset($_SESSION["login"])) {
-    header("Location: login.php");
-    exit;
-}
-
 require './functions.php';
 require './layouts/header.php';
 require './components/navbar.php';
-$sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori ORDER BY id_sejarah DESC");
+
+// pagination
+$jumlahDataPerHalaman = 5;
+$jumlahData = count(query("SELECT * FROM sejarah_teknologi"));
+$jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+$halamanAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
+$awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+
+$sejarah = query("SELECT * FROM sejarah_teknologi  NATURAL JOIN kategori ORDER BY id_sejarah DESC LIMIT $awalData, $jumlahDataPerHalaman");
 
 // tombol cari ditekan
 if (isset($_POST["cari"])) {
@@ -104,14 +106,19 @@ if (isset($_POST["cari"])) {
         <section class="d-flex mt-4">
             <nav class="ms-3">
                 <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">2</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Selanjutnya</a>
-                    </li>
+                    <?php if ($halamanAktif > 1) : ?>
+                        <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif - 1; ?>">Sebelumnya</a></li>
+                    <?php endif; ?>
+                    <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                        <?php if ($i == $halamanAktif) : ?>
+                            <li class="page-item active"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                        <?php else : ?>
+                            <li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+                    <?php if ($halamanAktif < $jumlahHalaman) : ?>
+                        <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif + 1; ?>">Selanjutnya</a></li>
+                    <?php endif; ?>
                 </ul>
             </nav>
         </section>
