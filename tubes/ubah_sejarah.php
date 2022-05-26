@@ -1,7 +1,7 @@
 <?php
-require '../functions.php';
-require '../layouts/header.php';
-require '../components/navbar_admin.php';
+require './functions.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 
 // ambil data dari uRL
 $id_sejarah = $_GET["id_sejarah"];
@@ -70,6 +70,6 @@ $kategori = query("SELECT * FROM kategori");
 </div>
 
 <?php
-require '../layouts/script.php';
-require '../components/footer.php';
+require './layouts/script.php';
+require './components/footer.php';
 ?>

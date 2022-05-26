@@ -36,15 +36,9 @@
     <aside class="col-xl-6 d-lg-none d-sm-block">
         <div class="card p-3 nav-blur">
             <nav class="nav nav-pills mx-auto">
-<<<<<<< HEAD
                 <a class="nav-link mx-2 active" aria-current="page" href="index.php">
                     <small class="text">Beranda</small> </a>
                 <a class="nav-link " href="tentang.php">
-=======
-                <a class="nav-link mx-2 active" aria-current="page" href="../users/index.php">
-                    <small class="text">Beranda</small> </a>
-                <a class="nav-link " href="../users/tentang.php">
->>>>>>> f5be0b73f4c57eb39ef58a93a355aea6edc71c85
                     <small class="text">Tentang</small> </a>
             </nav>
     </aside>

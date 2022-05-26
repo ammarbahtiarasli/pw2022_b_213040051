@@ -36,11 +36,7 @@
                         <a class="nav-link" href="kategori.php"> Kategori </a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
                         <a class="nav-link" href="users.php"> Pengguna </a>
-=======
-                        <a class="nav-link" href="../admin/users.php"> Pengguna </a>
->>>>>>> f5be0b73f4c57eb39ef58a93a355aea6edc71c85
                     </li>
                 </ul>
             </div>
@@ -55,32 +51,30 @@
         <!-- ==============COMPONENT MENU HOR =============== -->
         <div class="card p-3 nav-blur">
             <nav class="nav nav-pills mx-auto">
-<<<<<<< HEAD
-                <a class="nav-link mx-2 active" aria-current="page" href="index_admin.php">
-=======
-                <a class="nav-link mx-2 active" aria-current="page" href="../users/index.php">
->>>>>>> f5be0b73f4c57eb39ef58a93a355aea6edc71c85
-                    <small class="text">Dashboard</small> </a>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <small class="text">Data Tabel</small>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>
-                            <a class="dropdown-item" href="sejarah_teknologi.php">Sejarah Teknologi</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="kategori.php">Kategori</a>
-                        </li>
-                        <li>
-<<<<<<< HEAD
-                            <a class="dropdown-item" href="users.php">Pengguna</a>
-=======
-                            <a class="dropdown-item" href="../admin/users.php">Pengguna</a>
->>>>>>> f5be0b73f4c57eb39ef58a93a355aea6edc71c85
-                        </li>
-                    </ul>
-                </li>
+                <<<<<<< HEAD <a class="nav-link mx-2 active" aria-current="page" href="index_admin.php">
+                    =======
+                    <a class="nav-link mx-2 active" aria-current="page" href="../users/index.php">
+                        >>>>>>> f5be0b73f4c57eb39ef58a93a355aea6edc71c85
+                        <small class="text">Dashboard</small> </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <small class="text">Data Tabel</small>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="sejarah_teknologi.php">Sejarah Teknologi</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="kategori.php">Kategori</a>
+                            </li>
+                            <li>
+                                <<<<<<< HEAD <a class="dropdown-item" href="users.php">Pengguna</a>
+                                    =======
+                                    <a class="dropdown-item" href="../admin/users.php">Pengguna</a>
+                                    >>>>>>> f5be0b73f4c57eb39ef58a93a355aea6edc71c85
+                            </li>
+                        </ul>
+                    </li>
             </nav>
     </aside>
 </div>

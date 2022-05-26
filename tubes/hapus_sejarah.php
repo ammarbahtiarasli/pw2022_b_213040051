@@ -1,5 +1,5 @@
 <?php
-require '../functions.php';
+require './functions.php';
 $id_sejarah = $_GET["id_sejarah"];
 
 if (hapus($id_sejarah) > 0) {
