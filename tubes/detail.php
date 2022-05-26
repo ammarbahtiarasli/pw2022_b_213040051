@@ -1,7 +1,7 @@
 <?php
-require '../functions.php';
-require '../layouts/header.php';
-require '../components/navbar.php';
+require './functions.php';
+require './layouts/header.php';
+require './components/navbar.php';
 
 // ambil data dari uRL
 $id_sejarah = $_GET["id_sejarah"];
@@ -16,7 +16,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
     <div class="container">
         <div class="row">
             <div class="col">
-                <main class="bg-dark p-5" style="min-height:500px; background-image: url('../img/<?= $sejarah['gambar']; ?>');">
+                <main class="bg-dark p-5" style="min-height:500px; background-image: url('./img/<?= $sejarah['gambar']; ?>');">
                 </main>
                 <hr>
                 <section class="padding-y">
@@ -86,6 +86,6 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
 
 
 <?php
-require '../components/footer.php';
-require '../layouts/script.php';
+require './components/footer.php';
+require './layouts/script.php';
 ?>

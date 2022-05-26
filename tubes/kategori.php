@@ -1,14 +1,14 @@
 <?php
-require '../layouts/header.php';
-require '../components/navbar_admin.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 ?>
 
 
-<!-- Page Level -->
+<!-- Page kategori sejarah -->
 <div class="container my-3">
-    <h2>Daftar Level Pengguna</h2>
-    <div class="d-flex justify-content-between col-lg col-md col-12 mt-3">
-        <a href="#" class="btn btn-success-light">Tambah Data Level</a>
+    <h2>Daftar Kategori</h2>
+    <div class="d-flex justify-content-between col-lg mt-3">
+        <a href="tambah_kategori.php" class="btn btn-success-light">Tambah Data Kategori</a>
         <form action="#">
             <div class="input-group">
                 <input type="search" class="form-control" placeholder="Cari  ...">
@@ -22,14 +22,14 @@ require '../components/navbar_admin.php';
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Level</th>
+                        <th scope="col">Kategori</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Nama Level</td>
+                        <td>Nama Kategori</td>
                         <td>
                             <a href="" class="btn btn-warning-light">Ubah</a>
                             <a href="" class="btn btn-danger-light">Hapus</a>
@@ -59,6 +59,6 @@ require '../components/navbar_admin.php';
 <!-- End Page Users Admin -->
 
 <?php
-require '../layouts/script.php';
-require '../components/footer.php';
+require './layouts/script.php';
+require './components/footer.php';
 ?>

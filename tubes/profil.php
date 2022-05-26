@@ -1,6 +1,6 @@
 <?php
-require '../layouts/header.php';
-require '../components/navbar_admin.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 ?>
 
 <!-- Page Profil-->
@@ -12,7 +12,7 @@ require '../components/navbar_admin.php';
                 <!--  COMPONENT MENU LIST  -->
                 <nav class="nav flex-lg-column nav-pills mb-4">
                     <a class="nav-link active" href="#">Profil</a>
-                    <a class="nav-link" href="../users/index.php">Keluar</a>
+                    <a class="nav-link" href="index.php">Keluar</a>
                 </nav>
                 <!--   COMPONENT MENU LIST END .//   -->
             </aside>
@@ -43,7 +43,7 @@ require '../components/navbar_admin.php';
                                 <aside class="col-lg-4">
                                     <figure class="text-lg-center">
                                         <h6>Foto</h6>
-                                        <img class="img-lg img-avatar" src="../img/logo.png" alt="User Photo">
+                                        <img class="img-lg img-avatar" src="./img/logo.png" alt="User Photo">
                                     </figure>
                                 </aside> <!-- col.// -->
                             </div> <!-- row.// -->
@@ -72,6 +72,6 @@ require '../components/navbar_admin.php';
     </div> <!-- container .//  -->
 </section>
 <?php
-require '../layouts/script.php';
-require '../components/footer.php';
+require './layouts/script.php';
+require './components/footer.php';
 ?>

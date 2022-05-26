@@ -1,7 +1,7 @@
 <?php
-require '../functions.php';
-require '../layouts/header.php';
-require '../components/navbar.php';
+require './functions.php';
+require './layouts/header.php';
+require './components/navbar.php';
 $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori ORDER BY id_sejarah DESC");
 
 // tombol cari ditekan
@@ -11,7 +11,7 @@ if (isset($_POST["cari"])) {
 ?>
 
 <!-- Header -->
-<main class="bg-dark p-5" style="min-height:280px; background-size: cover; background-position: center; background-image: url('../img/bannerr.jpg');">
+<main class="bg-dark p-5" style="min-height:280px; background-size: cover; background-position: center; background-image: url('./img/bannerr.jpg');">
 
     <header class="text-center mt-5">
         <h1 class="text-white">Sejarah Teknologi</h2>
@@ -52,16 +52,16 @@ if (isset($_POST["cari"])) {
                     <article class="card card-product-list product-lg">
                         <div class="row g-0">
                             <aside class="col-xl-3 col-md-4">
-                                <a href="../users/detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="img-wrap">
-                                    <img src="../img/<?= $s['gambar']; ?>">
+                                <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="img-wrap">
+                                    <img src="./img/<?= $s['gambar']; ?>">
                                 </a>
                             </aside> <!-- col.// -->
                             <div class="col-xl-9 col-md-8 border-start">
                                 <div class="card-body">
-                                    <a href="../users/detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
+                                    <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
                                     <p class="mb-1 text-muted"><?= $s['tanggal']; ?></p>
                                     <p class="text-muted"><?= (str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body']); ?></p>
-                                    <a href="../users/detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
+                                    <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
@@ -77,9 +77,9 @@ if (isset($_POST["cari"])) {
                         <h5 class="card-title mb-3">Populer</h5>
 
                         <article class="itemside mb-3">
-                            <a href="../users/detail.php" class="aside"><img src="../img/nophoto.png" class="img-md img-thumbnail"></a>
+                            <a href="detail.php" class="aside"><img src="./img/nophoto.png" class="img-md img-thumbnail"></a>
                             <div class="info">
-                                <a href="../users/detail.php" class="title mb-1">Sejarah tercipta nya adam dan hawa</a>
+                                <a href="detail.php" class="title mb-1">Sejarah tercipta nya adam dan hawa</a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </article> <!-- itemside.// -->
@@ -118,6 +118,6 @@ if (isset($_POST["cari"])) {
 <!-- End Page Beranda -->
 
 <?php
-require '../components/footer.php';
-require '../layouts/script.php';
+require './components/footer.php';
+require './layouts/script.php';
 ?>

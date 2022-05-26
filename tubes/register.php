@@ -1,12 +1,12 @@
 <?php
-require '../layouts/header.php';
+require './layouts/header.php';
 ?>
 <!-- Navbar register -->
 <header class="section-header border-bottom sticky-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="../img/logo.png" height="40" class="logo">
+                <img src="./img/logo.png" height="40" class="logo">
             </a>
         </div>
     </nav>
@@ -32,14 +32,14 @@ require '../layouts/header.php';
             </div>
             <div class="mb-4">
                 <button type="submit" class="btn btn-success-light w-100"> Daftar </button>
-                <a class=" mt-3 btn btn-light w-100" href="../users/index.php"> Kembali </a>
+                <a class=" mt-3 btn btn-light w-100" href="index.php"> Kembali </a>
         </form>
         <hr>
-        <p class="text-center mb-2">Sudah punya akun ? <a href="../auth/login.php">Masuk</a></p>
+        <p class="text-center mb-2">Sudah punya akun ? <a href="login.php">Masuk</a></p>
     </div>
 </div>
 <!-- End Register -->
 
 <?php
-require '../layouts/script.php';
+require './layouts/script.php';
 ?>

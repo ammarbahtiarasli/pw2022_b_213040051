@@ -8,17 +8,17 @@
     <title>Sejarah Teknologi</title>
 
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/logo.png">
+    <link rel="icon" type="image/x-icon" href="./img/logo.png">
 
     <!-- Bootstrap css -->
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
 
     <!-- Custom css -->
-    <link href="../css/ui.css" rel="stylesheet" type="text/css" />
-    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="./css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="./css/responsive.css" rel="stylesheet" type="text/css" />
 
     <!-- Font awesome 5 -->
-    <link href="../fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+    <link href="./fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
 
     <!-- font inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
     <!-- mycss -->
-    <link rel="stylesheet" href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" rel="stylesheet">
 </head>
 
 <body>

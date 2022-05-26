@@ -1,7 +1,7 @@
 <?php
-require '../functions.php';
-require '../layouts/header.php';
-require '../components/navbar_admin.php';
+require './functions.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 
 $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori ORDER BY id_sejarah DESC");
 
@@ -14,7 +14,7 @@ if (isset($_POST["cari"])) {
 <div class="container my-3">
     <h2>Daftar Sejarah Teknologi</h2>
     <div class="d-flex justify-content-between col-lg col-sm-12 mt-3">
-        <a href="../admin/tambah_sejarah.php" class="btn btn-success-light">Tambah Data Sejarah</a>
+        <a href="tambah_sejarah.php" class="btn btn-success-light">Tambah Data Sejarah</a>
         <form action="#" method="POST">
             <div class="input-group">
                 <select class="form-select bg-light" style="max-width:30%">
@@ -51,7 +51,7 @@ if (isset($_POST["cari"])) {
                     <?php foreach ($sejarah as $s) : ?>
                         <tr>
                             <th scope="row"><?= $i++ ?></th>
-                            <td><img src="../img/<?= $s['gambar']; ?>" width="125px" alt="gambar"></td>
+                            <td><img src="./img/<?= $s['gambar']; ?>" width="125px" alt="gambar"></td>
                             <td><?= $s['judul']; ?></td>
                             <td><?= (str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body']); ?></td>
                             <td><?= $s['nama_kategori']; ?></td>
@@ -84,6 +84,6 @@ if (isset($_POST["cari"])) {
 </div>
 
 <?php
-require '../components/footer.php';
-require '../layouts/script.php';
+require './components/footer.php';
+require './layouts/script.php';
 ?>

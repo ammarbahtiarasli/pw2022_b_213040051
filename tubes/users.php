@@ -1,13 +1,13 @@
 <?php
-require '../layouts/header.php';
-require '../components/navbar_admin.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 ?>
 
 <!-- Page Users Admin -->
 <div class="container my-3">
     <h2>Daftar Pengguna</h2>
     <div class="d-flex justify-content-between col-lg col-md col-12 mt-3">
-        <a href="#" class="btn btn-success-light">Tambah Data Pengguna</a>
+        <a href="tambah_user.php" class="btn btn-success-light">Tambah Data Pengguna</a>
         <form action="#">
             <div class="input-group">
                 <select class="form-select bg-light" style="max-width:30%">
@@ -72,6 +72,6 @@ require '../components/navbar_admin.php';
 <!-- End Page Users Admin -->
 
 <?php
-require '../components/footer.php';
-require '../layouts/script.php';
+require './components/footer.php';
+require './layouts/script.php';
 ?>

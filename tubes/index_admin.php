@@ -1,6 +1,6 @@
 <?php
-require '../layouts/header.php';
-require '../components/navbar_admin.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 ?>
 <div class="container my-3">
     <div class="row">
@@ -60,12 +60,12 @@ require '../components/navbar_admin.php';
     <div class="row">
         <div class="col mb-5"></div>
         <center>
-            <img class="sponsor" src="../img/logo-unpas.png" width="75px" alt="" />
-            <img class="sponsor ms-3" src="../img/tif.png" width="75px" alt="" />
+            <img class="sponsor" src="./img/logo-unpas.png" width="75px" alt="" />
+            <img class="sponsor ms-3" src="./img/tif.png" width="75px" alt="" />
         </center>
     </div>
 </div>
 <?php
-require '../components/footer.php';
-require '../layouts/script.php';
+require './components/footer.php';
+require './layouts/script.php';
 ?>

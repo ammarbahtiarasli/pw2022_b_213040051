@@ -1,6 +1,6 @@
 <?php
-require '../layouts/header.php';
-require '../components/navbar.php';
+require './layouts/header.php';
+require './components/navbar.php';
 ?>
 
 <!-- Page Tentang -->
@@ -9,7 +9,7 @@ require '../components/navbar.php';
         <div class="row">
             <div class="col">
                 <article class="p-4 p-xl-5 text-center">
-                    <img src="../img/logo.png" class="img-avatar img-lg">
+                    <img src="./img/logo.png" class="img-avatar img-lg">
                     <h2 class="card-title mt-3">Ahmad Ammar Bahtiar 213040051</h2>
                     <p>
                         Pangandaran, ID<br>
@@ -87,6 +87,6 @@ require '../components/navbar.php';
 
 
 <?php
-require '../components/footer.php';
-require '../layouts/script.php';
+require './components/footer.php';
+require './layouts/script.php';
 ?>
