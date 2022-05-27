@@ -87,9 +87,9 @@ if (isset($_POST["cari"])) {
                         <?php endif; ?>
                         <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
                             <?php if ($i == $halamanAktif) : ?>
-                                <li class="page-item active"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                                <li class="page-item active"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
                             <?php else : ?>
-                                <li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                                <li class="page-item"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
                             <?php endif; ?>
                         <?php endfor; ?>
                         <?php if ($halamanAktif < $jumlahHalaman) : ?>

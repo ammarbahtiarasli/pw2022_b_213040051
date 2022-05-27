@@ -20,10 +20,10 @@ if (isset($_POST["cari"])) {
 ?>
 
 <!-- Header -->
-<main class="bg-dark p-5" style="min-height:280px; background-size: cover; background-position: center; background-image: url('./img/bannerr.jpg');">
+<main class="bg-dark p-5" style=" min-height:400px; background-size: cover; background-position: center; background-attachment:fixed; background-image: url('./img/bannerr.jpg');">
 
     <header class="text-center mt-5">
-        <h1 class="text-white">Sejarah Teknologi</h2>
+        <h1 class=" text-white">Sejarah Teknologi</h2>
             <p class="text-white">Discover the best history in the World</p>
     </header>
 
@@ -111,9 +111,9 @@ if (isset($_POST["cari"])) {
                     <?php endif; ?>
                     <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
                         <?php if ($i == $halamanAktif) : ?>
-                            <li class="page-item active"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                            <li class="page-item active"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
                         <?php else : ?>
-                            <li class="page-item"><a class="page-link" href="?halaman=<?= $i; ?>"><?= $i; ?></a></li>
+                            <li class="page-item"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
                         <?php endif; ?>
                     <?php endfor; ?>
                     <?php if ($halamanAktif < $jumlahHalaman) : ?>

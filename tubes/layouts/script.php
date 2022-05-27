@@ -3,7 +3,7 @@
 <script>
     hide_on_scroll({
         nav_id: 'scrollNavbar',
-        nav_offset: 100,
+        nav_offset: 180,
         nav_position: 'top',
         hide_onscroll_mobile: true,
         mobile_width: 576

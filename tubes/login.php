@@ -76,7 +76,7 @@ if (
     <div class="card-body">
         <h2 class="card-title mb-4">Masuk</h2>
         <?php if (isset($error)) : ?>
-            <p style="color: red; font-style: italic;">username / password salah</p>
+            <p style="color: red;">Username / Password salah.</p>
         <?php endif; ?>
         <form action="" method="POST">
             <div class="mb-3">

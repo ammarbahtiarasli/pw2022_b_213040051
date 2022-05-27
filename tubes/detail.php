@@ -16,6 +16,12 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
 <!-- Page Detail Sejarah -->
 <section class="padding-y shadow-sm">
     <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Detail Sejarah</li>
+            </ol>
+        </nav>
         <div class="row">
             <div class="col">
                 <main class="bg-dark p-5" style="min-height:500px; background-image: url('./img/<?= $sejarah['gambar']; ?>');">
@@ -83,6 +89,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
                 </section>
             </div>
         </div> <!-- row.// -->
+
     </div> <!-- container .//  -->
 </section>
 

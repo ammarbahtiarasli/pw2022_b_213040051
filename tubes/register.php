@@ -56,9 +56,9 @@ if (
             <div class="mb-3">
                 <label class="form-label">Daftar sebagai :</label>
                 <select class="form-select" name="id_level">
-                    <option value="2" selected>default (admin)</option>
+                    <option selected disabled>Pilih Level</option>
                     <?php foreach ($level as $l) : ?>
-                        <option value="<?= $l['id_level']; ?>" disabled><?= $l['nama_level']; ?></option>
+                        <option value="<?= $l['id_level']; ?>"><?= $l['nama_level']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

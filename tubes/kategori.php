@@ -1,13 +1,15 @@
 <?php
 session_start();
+require 'functions.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
 
-require './layouts/header.php';
-require './components/navbar_admin.php';
+$kategori = query("SELECT * FROM kategori");
 ?>
 
 
@@ -34,14 +36,17 @@ require './components/navbar_admin.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Nama Kategori</td>
-                        <td>
-                            <a href="" class="btn btn-warning-light">Ubah</a>
-                            <a href="" class="btn btn-danger-light">Hapus</a>
-                        </td>
-                    </tr>
+                    <?php $i = 1; ?>
+                    <?php foreach ($kategori as $k) : ?>
+                        <tr>
+                            <th scope="row"><?= $i++; ?></th>
+                            <td><?= $k['nama_kategori']; ?></td>
+                            <td>
+                                <a href="" class="btn btn-warning-light">Ubah</a>
+                                <a href="" class="btn btn-danger-light">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
