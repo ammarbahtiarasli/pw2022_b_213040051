@@ -12,10 +12,15 @@ $halamanAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
 $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
 $sejarah = query("SELECT * FROM sejarah_teknologi  NATURAL JOIN kategori ORDER BY id_sejarah DESC LIMIT $awalData, $jumlahDataPerHalaman");
+$kategori = query("SELECT * FROM kategori");
 
 // tombol cari ditekan
 if (isset($_POST["cari"])) {
     $sejarah = cari($_POST["keyword"]);
+}
+
+if (isset($_POST["cari"])) {
+    $sejarah = cari($_POST["kategori"]);
 }
 ?>
 
@@ -31,16 +36,13 @@ if (isset($_POST["cari"])) {
         <div class="row g-2 w-100">
             <div class="col flex-grow">
                 <div class="input-group">
-                    <select class="form-select bg-light" style="max-width:30%">
-                        <option>Semua</option>
-                        <option>Aplikasi</option>
-                        <option>Handphone</option>
-                        <option>Transportasi</option>
-                        <option>Komputer</option>
-                        <option>Lainnya</option>
+                    <select class="form-select bg-light" style="max-width:30%" name="kategori">
+                        <?php foreach ($kategori as $k) : ?>
+                            <option value="<?= $k["nama_kategori"] ?>"><?= $k["nama_kategori"] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="keyword" autofocus autocomplete="off">
-                    <button type="submit" name="cari" hidden></button>
+                    <button type="submit" name="cari">Cari</button>
                 </div>
             </div> <!-- col.// -->
         </div> <!-- row.// -->

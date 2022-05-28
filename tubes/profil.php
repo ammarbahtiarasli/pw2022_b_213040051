@@ -1,13 +1,16 @@
 <?php
 session_start();
+require './layouts/header.php';
+require 'functions.php';
+require './components/navbar.php';
 
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
+$user = query("SELECT * FROM users WHERE id_user = '$_SESSION[id_user]'")[0];
+print_r($user);
 
-require './layouts/header.php';
-require './components/navbar.php';
 ?>
 
 <!-- Page Profil-->

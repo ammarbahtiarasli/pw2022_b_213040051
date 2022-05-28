@@ -4,6 +4,9 @@ session_start();
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
+} elseif (isset($_SESSION["login"]) && $_SESSION["id_level"] == 1) {
+    header("Location: index.php");
+    exit;
 }
 
 require './layouts/header.php';

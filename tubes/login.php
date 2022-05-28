@@ -41,7 +41,8 @@ if (
         if (password_verify($password, $row["password"])) {
             // set session
             $_SESSION["login"] = true;
-
+            $_SESSION['id_level'] = $row["id_level"];
+            $_SESSION['id_user'] = $row["id_user"];
             // cek remember me
             if (
                 isset($_POST['remember'])
@@ -51,7 +52,12 @@ if (
                 setcookie('key', hash('sha256', $row['username']), time() + 60);
             }
 
-            header("Location: index_admin.php?dashboard");
+            if ($row['id_level'] == 1) {
+                # code...
+                header("Location: index.php");
+            } elseif ($row['id_level'] == 2) {
+                header("Location: index_admin.php?dashboard");
+            }
             exit;
         }
     }
