@@ -42,7 +42,7 @@ if (isset($_POST["cari"])) {
                         <?php endforeach; ?>
                     </select>
                     <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="keyword" autofocus autocomplete="off">
-                    <button type="submit" name="cari">Cari</button>
+                    <button type="submit" name="cari" hidden>Cari</button>
                 </div>
             </div> <!-- col.// -->
         </div> <!-- row.// -->

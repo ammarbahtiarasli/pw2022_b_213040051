@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 require './layouts/header.php';
 require './components/navbar.php';
 ?>

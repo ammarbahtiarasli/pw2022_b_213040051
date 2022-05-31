@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 
 require './functions.php';
 require './layouts/header.php';
@@ -41,9 +45,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
 
                     </div> <!-- container .//  -->
                 </section>
-                <!-- ============== SECTION CONTENT END// ============== -->
 
-                <!-- ============== SECTION  ============== -->
                 <section class="bg-light padding-y">
                     <div class="container">
 

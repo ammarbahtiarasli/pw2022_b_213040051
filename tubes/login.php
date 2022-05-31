@@ -53,7 +53,6 @@ if (
             }
 
             if ($row['id_level'] == 1) {
-                # code...
                 header("Location: index.php");
             } elseif ($row['id_level'] == 2) {
                 header("Location: index_admin.php?dashboard");

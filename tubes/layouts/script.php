@@ -9,6 +9,9 @@
         mobile_width: 576
     });
 </script>
+
+<script src="../js/myscript.js"></script>
+
 </body>
 
 <!-- Bootstrap js -->

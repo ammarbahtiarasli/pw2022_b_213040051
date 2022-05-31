@@ -11,16 +11,18 @@
                     <a class="btn btn-success-light" href="login.php?login">Masuk </a>
                     <a class="btn btn-light" href="register.php?register">Daftar </a>
                 <?php else : ?>
-                    <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span><i class="fa fa-user-circle" aria-hidden="true"></i> Admin</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li> <a class="dropdown-item" href="profil.php?profil">Profil</a> </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li> <a class="dropdown-item" href="logout.php">Keluar</a> </li>
-                    </ul>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span><i class="fa fa-user-circle"></i> Admin</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li> <a class="dropdown-item" href="profil.php?profil">Profil</a> </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li> <a class="dropdown-item" href="logout.php">Keluar</a> </li>
+                        </ul>
+                    </div>
                 <?php endif ?>
 
                 <div class="d-none d-lg-block">

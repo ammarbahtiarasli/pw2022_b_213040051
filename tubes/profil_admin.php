@@ -1,13 +1,15 @@
 <?php
 session_start();
+require 'functions.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
+$user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION[id_user]'")[0];
 
-require './layouts/header.php';
-require './components/navbar_admin.php';
 ?>
 
 <!-- Page Profil-->
@@ -32,18 +34,18 @@ require './components/navbar_admin.php';
                                 <div class="col-lg-8">
                                     <div class="row gx-3">
                                         <div class="col-lg-12  mb-3">
-                                            <label class="form-label">Nama</label>
-                                            <input class="form-control" type="text" placeholder="Admin" readonly>
+                                            <label class="form-label">Username</label>
+                                            <input class="form-control" type="text" placeholder="<?= $user['username']; ?>" readonly>
                                         </div> <!-- col .// -->
 
                                         <div class="col-lg-12  mb-3">
                                             <label class="form-label">Email</label>
-                                            <input class="form-control" type="text" placeholder="Admin@gmail.com" readonly>
+                                            <input class="form-control" type="text" placeholder="<?= $user['email']; ?>" readonly>
                                         </div> <!-- col .// -->
 
                                         <div class="col-lg-12  mb-3">
                                             <label class="form-label">Level</label>
-                                            <input class="form-control" type="text" placeholder="Admin@gmail.com" readonly>
+                                            <input class="form-control" type="text" placeholder="<?= $user['nama_level']; ?>" readonly>
                                         </div> <!-- col .// -->
                                     </div> <!-- row.// -->
                                 </div> <!-- col.// -->
