@@ -88,12 +88,26 @@ if (isset($_POST["cari"])) {
                         <h5 class="card-title mb-3">Populer</h5>
 
                         <article class="itemside mb-3">
-                            <a href="detail.php" class="aside"><img src="./img/nophoto.png" class="img-md img-thumbnail"></a>
+                            <a href="#" class="aside"><img src="./img/nophoto.png" class="img-md img-thumbnail"></a>
                             <div class="info">
-                                <a href="detail.php" class="title mb-1">Sejarah tercipta nya adam dan hawa</a>
+                                <a href="#" class="title mb-1">Sejarah paling populer</a>
                                 <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
-                        </article> <!-- itemside.// -->
+                        </article>
+                        <article class="itemside mb-3">
+                            <a href="#" class="aside"><img src="./img/nophoto.png" class="img-md img-thumbnail"></a>
+                            <div class="info">
+                                <a href="#" class="title mb-1">Sejarah paling populer</a>
+                                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </article>
+                        <article class="itemside mb-3">
+                            <a href="#" class="aside"><img src="./img/nophoto.png" class="img-md img-thumbnail"></a>
+                            <div class="info">
+                                <a href="#" class="title mb-1">Sejarah paling populer</a>
+                                <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </article>
 
                     </div>
                 </div>

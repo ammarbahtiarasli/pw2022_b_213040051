@@ -39,7 +39,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
                             <p class="lead"><?= $sejarah['nama_kategori']; ?> - <?= $sejarah['tanggal']; ?></p>
                         </header>
 
-                        <p><?= $sejarah['body']; ?></p>
+                        <p><?= htmlspecialchars_decode($sejarah['body']); ?></p>
 
                         <a href="javascript: history.back()" class="btn btn-light"> &laquo; Kembali</a>
 
@@ -64,7 +64,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
                                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                                 </article>
-                            </div> <!-- col.// -->
+                            </div>
                             <div class="col-md-4">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -74,7 +74,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
                                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
-                            </div> <!-- col.// -->
+                            </div>
                             <div class="col-md-4">
                                 <p>
                                     Consectetur adipisicing elit, sed do eiusmod

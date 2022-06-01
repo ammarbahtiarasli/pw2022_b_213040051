@@ -42,8 +42,8 @@ $kategori = query("SELECT * FROM kategori");
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $k['nama_kategori']; ?></td>
                             <td>
-                                <a href="" class="btn btn-warning-light">Ubah</a>
-                                <a href="" class="btn btn-danger-light">Hapus</a>
+                                <a href="ubah_kategori.php?id_kategori=<?= $k["id_kategori"]; ?>" class="btn btn-warning-light">Ubah</a>
+                                <a href="hapus_kategori.php?id_kategori=<?= $k["id_kategori"]; ?>" class="btn btn-danger-light">Hapus</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

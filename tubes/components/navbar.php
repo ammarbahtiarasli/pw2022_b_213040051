@@ -11,9 +11,12 @@
                     <a class="btn btn-success-light" href="login.php?login">Masuk </a>
                     <a class="btn btn-light" href="register.php?register">Daftar </a>
                 <?php else : ?>
+                    <?php
+                    $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION[id_user]'")[0];
+                    ?>
                     <div class="nav-item dropdown">
                         <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span><i class="fa fa-user-circle"></i> Admin</span>
+                            <span><i class="fa fa-user-circle"></i> <?= $user['username']; ?> </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li> <a class="dropdown-item" href="profil.php?profil">Profil</a> </li>

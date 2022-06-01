@@ -66,7 +66,7 @@ if (isset($_POST["cari"])) {
                             <th scope="row"><?= $i++ ?></th>
                             <td><img src="./img/<?= $s['gambar']; ?>" width="125px" alt="gambar"></td>
                             <td><?= $s['judul']; ?></td>
-                            <td><?= (str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body']); ?></td>
+                            <td><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></td>
                             <td><?= $s['nama_kategori']; ?></td>
                             <td><?= $s['tanggal']; ?></td>
                             <td class="d-flex">

@@ -16,6 +16,11 @@ if (isset($_POST["tambah"])) {
             alert('data berhasil ditambahkan');
             document.location.href = 'sejarah_teknologi.php';
             </script>";
+    } else {
+        echo "<script>
+            alert('data gagal diubah');
+            document.location.href = 'sejarah_teknologi.php';
+            </script>";
     }
 }
 
@@ -39,7 +44,7 @@ $kategori = query("SELECT * FROM kategori");
                 </div>
                 <div class="mb-3">
                     <label for="body" class="form-label">Body</label>
-                    <textarea type="text" class="form-control" id="body" name="body" required></textarea>
+                    <textarea type="text" class="form-control" id="body" name="body"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="kategori" class="form-label">Kategori</label>

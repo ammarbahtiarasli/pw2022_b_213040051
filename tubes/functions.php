@@ -148,6 +148,45 @@ function cari($keyword)
     return query($query);
 }
 
+function tambah_kategori($data)
+{
+    $conn = Koneksi();
+
+    $kategori = htmlspecialchars($data["nama_kategori"]);
+
+
+    $query = "INSERT INTO kategori VALUES (null, '$kategori')";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubah_kategori($data)
+{
+    $conn = Koneksi();
+
+    $id_kategori = $data["id_kategori"];
+    $nama_kategori = htmlspecialchars($data["nama_kategori"]);
+
+    $query = "UPDATE kategori SET
+                nama_kategori = '$nama_kategori'
+                WHERE id_kategori = $id_kategori
+                ";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapus_kategori($id_kategori)
+{
+    $conn = Koneksi();
+
+    $query = "DELETE FROM kategori WHERE id_kategori = $id_kategori";
+    mysqli_query($conn, $query) or die(mysqli_error(($conn)));
+
+    return mysqli_affected_rows($conn);
+}
+
 function register($data)
 {
     $conn = Koneksi();

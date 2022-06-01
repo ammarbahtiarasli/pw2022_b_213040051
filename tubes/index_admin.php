@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'functions.php';
 
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
@@ -11,11 +12,14 @@ if (!isset($_SESSION["login"])) {
 
 require './layouts/header.php';
 require './components/navbar_admin.php';
+
+$user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION[id_user]'")[0];
+
 ?>
 <div class="container my-3">
     <div class="row">
         <div class="col">
-            <h2>Hai, Admin !</h2>
+            <h2>Hai, <?= $user['username']; ?> !</h2>
             <p>
                 Selamat datang di halaman admin.
             </p>
