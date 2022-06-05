@@ -1,6 +1,6 @@
 <!-- Navbar Admin -->
-<header class="section-header border-bottom " id="scrollNavbar">
-    <nav class="navbar navbar-expand-lg navbar-light nav-blur ">
+<header class="section-header border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.php">
                 <img src="./img/logo.png" height="40" class="logo">
@@ -16,7 +16,8 @@
                     ?>
                     <div class="nav-item dropdown">
                         <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span><i class="fa fa-user-circle" aria-hidden="true"></i> <?= $user['username']; ?></span>
+                            <span class="icon-xs bg-gray rounded-circle me-2"><i class="fa fa-user"></i> </span>
+                            <span> <?= $user['username']; ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li> <a class="dropdown-item" href="profil_admin.php?profil">Profil</a> </li>

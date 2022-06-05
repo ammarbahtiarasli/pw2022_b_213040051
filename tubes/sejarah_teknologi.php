@@ -1,13 +1,13 @@
 <?php
 session_start();
-require './functions.php';
-require './layouts/header.php';
-require './components/navbar_admin.php';
-
 if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
+
+require './functions.php';
+require './layouts/header.php';
+require './components/navbar_admin.php';
 
 // pagination
 $jumlahDataPerHalaman = 5;
@@ -38,7 +38,7 @@ if (isset($_POST["cari"])) {
                     <option>Komputer</option>
                     <option>Lainnya</option>
                 </select>
-                <input type="text" placeholder="Cari ..." name="keyword" class="form-control" autofocus autocomplete="off">
+                <input type="text" placeholder="Cari ..." name="keyword" class="form-control" autocomplete="off">
                 <button type="submit" name="cari" hidden></button>
             </div>
         </form>
@@ -77,6 +77,7 @@ if (isset($_POST["cari"])) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
+
 
             <!-- navigasi -->
             <section class="d-flex mt-4">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require './functions.php';
+require 'functions.php';
 require './layouts/header.php';
 require './components/navbar.php';
 
@@ -11,7 +11,7 @@ $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 $halamanAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
 $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
 
-$sejarah = query("SELECT * FROM sejarah_teknologi  NATURAL JOIN kategori ORDER BY id_sejarah DESC LIMIT $awalData, $jumlahDataPerHalaman");
+$sejarah = query("SELECT * FROM sejarah_teknologi  NATURAL JOIN kategori ORDER BY id_sejarah LIMIT $awalData, $jumlahDataPerHalaman");
 $kategori = query("SELECT * FROM kategori");
 
 // tombol cari ditekan
@@ -32,17 +32,18 @@ if (isset($_POST["cari"])) {
             <p class="text-white">Discover the best history in the World</p>
     </header>
 
-    <form class="mx-auto w-100 mb-3" action="" method="POST" style="max-width: 720px">
+    <form class="mx-auto w-100 mb-3" action="#" method="POST" style="max-width: 720px">
         <div class="row g-2 w-100">
             <div class="col flex-grow">
                 <div class="input-group">
                     <select class="form-select bg-light" style="max-width:30%" name="kategori">
+                        <option>Semua</option>
                         <?php foreach ($kategori as $k) : ?>
                             <option value="<?= $k["nama_kategori"] ?>"><?= $k["nama_kategori"] ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="keyword" autofocus autocomplete="off">
-                    <button type="submit" name="cari" hidden>Cari</button>
+                    <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="keyword" autocomplete="off" id="keyword">
+                    <button type="submit" name="cari" id="tombol-cari" hidden>Cari</button>
                 </div>
             </div> <!-- col.// -->
         </div> <!-- row.// -->
@@ -58,27 +59,29 @@ if (isset($_POST["cari"])) {
             <h2>Terbaru</h2>
             <hr>
             <main class="col-lg-8">
-                <!-- Konten -->
-                <?php foreach ($sejarah as $s) : ?>
-                    <article class="card card-product-list product-lg">
-                        <div class="row g-0">
-                            <aside class="col-xl-3 col-md-4">
-                                <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="img-wrap">
-                                    <img src="./img/<?= $s['gambar']; ?>">
-                                </a>
-                            </aside> <!-- col.// -->
-                            <div class="col-xl-9 col-md-8 border-start">
-                                <div class="card-body">
-                                    <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
-                                    <p class="mb-1 text-muted"><?= $s['tanggal']; ?></p>
-                                    <p class="text-muted"><?= (str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body']); ?></p>
-                                    <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
+                <div id="container">
+                    <!-- Konten -->
+                    <?php foreach ($sejarah as $s) : ?>
+                        <article class="card card-product-list product-lg">
+                            <div class="row g-0">
+                                <aside class="col-xl-3 col-md-4">
+                                    <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="img-wrap">
+                                        <img src="./img/<?= $s['gambar']; ?>">
+                                    </a>
+                                </aside> <!-- col.// -->
+                                <div class="col-xl-9 col-md-8 border-start">
+                                    <div class="card-body">
+                                        <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
+                                        <p class="mb-1 text-muted"><?= $s['tanggal']; ?></p>
+                                        <p class="text-muted"><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></p>
+                                        <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </article>
-                <?php endforeach; ?>
-                <!-- End Konten -->
+                        </article>
+                    <?php endforeach; ?>
+                    <!-- End Konten -->
+                </div>
 
             </main>
             <aside class="col-lg-4">

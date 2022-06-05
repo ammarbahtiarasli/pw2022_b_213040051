@@ -55,7 +55,7 @@ $kategori = query("SELECT * FROM kategori");
                 </div>
                 <div class="mb-3">
                     <label for="body" class="form-label">Body</label>
-                    <textarea type="text" class="form-control" id="body" name="body" required value="<?= $sejarah['body']; ?>"><?= $sejarah['body']; ?></textarea>
+                    <textarea type="text" class="form-control" id="text-editor" name="body" required value="<?= $sejarah['body']; ?>"><?= $sejarah['body']; ?></textarea>
                 </div>
                 <div class=" mb-3">
                     <label for="kategori" class="form-label">Kategori</label>

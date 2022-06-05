@@ -44,7 +44,7 @@ $kategori = query("SELECT * FROM kategori");
                 </div>
                 <div class="mb-3">
                     <label for="body" class="form-label">Body</label>
-                    <textarea type="text" class="form-control" id="body" name="body"></textarea>
+                    <textarea type="text" class="form-control" id="text-editor" name="body"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="kategori" class="form-label">Kategori</label>

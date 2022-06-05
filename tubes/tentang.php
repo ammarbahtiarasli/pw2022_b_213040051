@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require './functions.php';
 require './layouts/header.php';
 require './components/navbar.php';
 ?>
@@ -38,7 +38,7 @@ require './components/navbar.php';
                                         </h4>
                                         <div id="content_faq_1" class="accordion-collapse collapse show" data-bs-parent="#accordion_faq">
                                             <div class="accordion-body">
-                                                Website yang menyediakan berbagai sejarah teknologi dan informasi.
+                                                Website yang menyediakan berbagai sejarah teknologi dan informasi untuk dibaca oleh pengguna.
                                             </div>
                                         </div>
                                     </article> <!-- accordion-item.// -->
@@ -50,7 +50,7 @@ require './components/navbar.php';
                                         </h4>
                                         <div id="content_faq_2" class="accordion-collapse collapse" data-bs-parent="#accordion_faq">
                                             <div class="accordion-body">
-                                                Website ini menggunakan teknologi HTML, CSS, PHP, MySQL, dan Bootstrap 5.
+                                                Website ini menggunakan teknologi HTML, CSS, PHP, MySQL, ajax, dan Bootstrap 5.
                                             </div>
                                         </div>
                                     </article> <!-- accordion-item.// -->
@@ -63,6 +63,7 @@ require './components/navbar.php';
                                         <div id="content_faq_3" class="accordion-collapse collapse" data-bs-parent="#accordion_faq">
                                             <div class="accordion-body">
                                                 Karena website ini adalah sebuah tugas besar matakuliah Pemrograman Web yang dibuat oleh Ahmad Ammar Bahtiar.
+                                                Saya ucapkan Terimakasih kepada Pak Sandhika sebagai Dosen dan kepada akang pementor yang sudah membimbing saya.
                                             </div>
                                         </div>
                                     </article> <!-- accordion-item.// -->

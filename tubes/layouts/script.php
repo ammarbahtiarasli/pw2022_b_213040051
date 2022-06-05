@@ -1,25 +1,13 @@
-<!-- Function Call -->
-<script src="./js/navonscroll.js"></script>
-<script>
-    hide_on_scroll({
-        nav_id: 'scrollNavbar',
-        nav_offset: 180,
-        nav_position: 'top',
-        hide_onscroll_mobile: true,
-        mobile_width: 576
-    });
-</script>
-
-<script src="../js/myscript.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
 <script>
     ClassicEditor
-        .create(document.querySelector('#body'))
+        .create(document.querySelector('#text-editor'))
         .catch(error => {
             console.error(error);
         });
 </script>
 
+<script src="./js/myscript.js"></script>
 </body>
 
 <!-- Bootstrap js -->

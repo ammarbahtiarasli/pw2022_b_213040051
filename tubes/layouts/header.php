@@ -54,8 +54,8 @@
     <!-- mycss -->
     <link rel="stylesheet" href="./css/style.css" rel="stylesheet">
     <style>
-        body {
-            padding-top: 4.5rem;
+        .ck-editor__editable {
+            min-height: 200px !important;
         }
     </style>
 </head>
