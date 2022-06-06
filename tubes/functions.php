@@ -29,12 +29,17 @@ function tambah($data)
     $body = htmlspecialchars($data["body"]);
     $kategori = htmlspecialchars($data["kategori"]);
 
-    // upload gambar
-    $gambar = upload();
-    if (
-        !$gambar
-    ) {
-        return false;
+    // cek apakah user ttidak mengupload gambar
+    if ($_FILES["gambar"]["error"] === 4) {
+        // pilih gambar default
+        $gambar = 'nophoto.png';
+    } else {
+        // jalankan fungsi upload
+        $gambar = upload();
+        // cek jika upload gagal
+        if (!$gambar) {
+            return false;
+        }
     }
 
 
@@ -48,29 +53,15 @@ function upload()
 {
     $namaFile = $_FILES['gambar']['name'];
     $ukuranFile = $_FILES['gambar']['size'];
-    $error = $_FILES['gambar']['error'];
     $tmpName = $_FILES['gambar']['tmp_name'];
+    $filetytpe = pathinfo($namaFile, PATHINFO_EXTENSION);
+    $allowedtype = ["jpg", "jpeg", "png"];
 
-    // cek apakah tidak ada gambar yang diupload
-    if (
-        $error === 4
-    ) {
+    // cek apakah yang di upload bukan gambar
+    if (!in_array(strtolower($filetytpe), $allowedtype)) {
         echo "<script>
-				alert('pilih gambar terlebih dahulu!');
-			  </script>";
-        return false;
-    }
-
-    // cek apakah yang diupload adalah gambar
-    $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
-    $ekstensiGambar = explode('.', $namaFile);
-    $ekstensiGambar = strtolower(end($ekstensiGambar));
-    if (
-        !in_array($ekstensiGambar, $ekstensiGambarValid)
-    ) {
-        echo "<script>
-				alert('yang anda upload bukan gambar!');
-			  </script>";
+            alert('upload gambar nya yang bener dong !');
+            </script>";
         return false;
     }
 
@@ -86,9 +77,7 @@ function upload()
 
     // lolos pengecekan, gambar siap diupload
     // generate nama gambar baru
-    $namaFileBaru = uniqid();
-    $namaFileBaru .= '.';
-    $namaFileBaru .= $ekstensiGambar;
+    $namaFileBaru = uniqid() . $namaFile;
 
     move_uploaded_file($tmpName, './img/' . $namaFileBaru);
 
@@ -131,6 +120,15 @@ function ubah_sejarah($data)
 function hapus($id_sejarah)
 {
     $conn = Koneksi();
+
+    // query mahasiswa berdasarkan id
+    $sejarah = query("SELECT * FROM sejarah_teknologi WHERE id_sejarah = $id_sejarah")[0];
+
+    // cek jika gambar default
+    if ($sejarah['gambar'] !== 'nophoto.png') {
+        // hapus gambar dari folder
+        unlink('img/' . $sejarah['gambar']);
+    }
 
     $query = "DELETE FROM sejarah_teknologi WHERE id_sejarah = $id_sejarah";
     mysqli_query($conn, $query) or die(mysqli_error(($conn)));
@@ -221,6 +219,45 @@ function register($data)
 
     // tambahkan userbaru ke database
     mysqli_query($conn, "INSERT INTO users VALUES('', '$username', '$email', '$password', '', '$id_level')");
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubah_user($data)
+{
+    $conn = Koneksi();
+
+    $id_user = $data["id_user"];
+    $username = htmlspecialchars($data["username"]);
+    $email = htmlspecialchars($data["email"]);
+    $password = htmlspecialchars($data["password"]);
+
+    $query = "UPDATE users SET
+                username = '$username',
+                email = '$email',
+                password = '$password'
+                WHERE id_user = $id_user
+                ";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapus_user($id_user)
+{
+    $conn = Koneksi();
+
+    // query mahasiswa berdasarkan id
+    $users = query("SELECT * FROM users WHERE id_user = $id_user")[0];
+
+    // cek jika gambar default
+    if ($users['gambar'] !== 'nophoto.png') {
+        // hapus gambar dari folder
+        unlink('img/' . $users['gambar']);
+    }
+
+    $query = "DELETE FROM users WHERE id_user = $id_user";
+    mysqli_query($conn, $query) or die(mysqli_error(($conn)));
 
     return mysqli_affected_rows($conn);
 }

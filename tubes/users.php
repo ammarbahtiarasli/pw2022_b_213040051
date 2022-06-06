@@ -27,12 +27,12 @@ $users = query("SELECT * FROM users NATURAL JOIN level ORDER BY id_user DESC");
                 <input type="text" placeholder="Cari ..." class="form-control" name="">
             </div>
         </form>
-        <a href="#" class="btn btn-light">Export PDF</a>
+        <a href="cetak_users.php" target="_blank" class="btn btn-light">Export PDF</a>
     </div>
     <hr>
     <div class="row">
         <div class="col">
-            <table class="table table-responsive table-bordered">
+            <table class="table table-responsive table-bordered table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -44,9 +44,10 @@ $users = query("SELECT * FROM users NATURAL JOIN level ORDER BY id_user DESC");
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 1; ?>
                     <?php foreach ($users as $u) : ?>
-                        <tr>
-                            <th scope="row"><?= $u['id_user']; ?></th>
+                        <tr class="align-middle">
+                            <th scope="row"><?= $i++; ?></th>
                             <td>
                                 <img src="./img/nophoto.png" width="125px" alt="gambar">
                             </td>
@@ -54,7 +55,7 @@ $users = query("SELECT * FROM users NATURAL JOIN level ORDER BY id_user DESC");
                             <td><?= $u['email']; ?></td>
                             <td><?= $u['nama_level']; ?></td>
                             <td>
-                                <a href="" class="btn btn-warning-light">Ubah</a>
+                                <a href="ubah_user.php?id_user=<?= $u['id_user']; ?>" class="btn btn-warning-light">Ubah</a>
                                 <a href="" class="btn btn-danger-light">Hapus</a>
                             </td>
                         </tr>

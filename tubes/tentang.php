@@ -7,7 +7,7 @@ require './components/navbar.php';
 
 <!-- Page Tentang -->
 <div class="bg-light">
-    <div class="container ">
+    <div class="container">
         <div class="row">
             <div class="col">
                 <article class="p-4 p-xl-5 text-center">

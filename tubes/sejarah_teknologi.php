@@ -42,34 +42,34 @@ if (isset($_POST["cari"])) {
                 <button type="submit" name="cari" hidden></button>
             </div>
         </form>
-        <a href="#" class="btn btn-light">Export PDF</a>
+        <a href="cetak_sejarah.php" target="_blank" class="btn btn-light">Export PDF</a>
     </div>
     <hr>
     <div class="row">
         <div class="col">
-            <table class="table table-responsive table-bordered">
+            <table class="table table-bordered table-hover table-responsive">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Gambar</th>
                         <th scope="col">Judul</th>
-                        <th scope="col" width="500px">Body</th>
+                        <th scope="col" width="500px">Isi Konten</th>
                         <th scope="col">Kategori</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col" width="125px">Tanggal</th>
+                        <th scope="col" width="178px">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($sejarah as $s) : ?>
-                        <tr>
+                        <tr class="align-middle">
                             <th scope="row"><?= $i++ ?></th>
                             <td><img src="./img/<?= $s['gambar']; ?>" width="125px" alt="gambar"></td>
                             <td><?= $s['judul']; ?></td>
                             <td><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></td>
                             <td><?= $s['nama_kategori']; ?></td>
                             <td><?= $s['tanggal']; ?></td>
-                            <td class="d-flex">
+                            <td class="">
                                 <a href="ubah_sejarah.php?id_sejarah=<?= $s["id_sejarah"]; ?>" class="btn btn-warning-light">Ubah</a>
                                 <a href="hapus_sejarah.php?id_sejarah=<?= $s["id_sejarah"]; ?>" class="btn btn-danger-light ms-2" onclick="return confirm('yakin ?');">Hapus</a>
                             </td>

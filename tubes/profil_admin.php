@@ -52,7 +52,7 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                                 <aside class="col-lg-4">
                                     <figure class="text-lg-center">
                                         <h6>Foto</h6>
-                                        <img class="img-lg img-avatar" src="./img/logo.png" alt="User Photo">
+                                        <img class="img-lg img-avatar" src="./img/nophoto.png" alt="User Photo">
                                     </figure>
                                 </aside> <!-- col.// -->
                             </div> <!-- row.// -->

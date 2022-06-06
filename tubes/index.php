@@ -24,28 +24,35 @@ if (isset($_POST["cari"])) {
 }
 ?>
 
+<!-- Back to top button -->
+<button type="button" class="btn btn-success-light btn-floating btn-lg" id="btn-back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
 <!-- Header -->
 <main class="bg-dark p-5" style=" min-height:400px; background-size: cover; background-position: center; background-attachment:fixed; background-image: url('./img/bannerr.jpg');">
 
     <header class="text-center mt-5">
-        <h1 class=" text-white">Sejarah Teknologi</h2>
-            <p class="text-white">Discover the best history in the World</p>
+        <h1 class=" text-white">Website Sejarah Teknologi</h2>
+            <p class="text-white">~ Discover the best history in the World ~</p>
     </header>
 
-    <form class="mx-auto w-100 mb-3" action="#" method="POST" style="max-width: 720px">
+    <form class="mx-auto w-100 mb-3" action="#" method="POST" style="max-width: 870px">
         <div class="row g-2 w-100">
             <div class="col flex-grow">
                 <div class="input-group">
-                    <select class="form-select bg-light" style="max-width:30%" name="kategori">
-                        <option>Semua</option>
+                    <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="keyword" autocomplete="off" id="keyword">
+                    <select class="form-select bg-light" style="max-width:32%" name="kategori">
+                        <option value="">Filter berdasarkan :</option>
                         <?php foreach ($kategori as $k) : ?>
                             <option value="<?= $k["nama_kategori"] ?>"><?= $k["nama_kategori"] ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <input type="text" placeholder="Cari Sejarah Apa Ya ?" class="form-control" name="keyword" autocomplete="off" id="keyword">
-                    <button type="submit" name="cari" id="tombol-cari" hidden>Cari</button>
                 </div>
             </div> <!-- col.// -->
+            <div class="col-auto">
+                <button type="submit" name="cari" id="tombol-cari" class="btn btn-success-light">Cari Kategori</button>
+            </div>
         </div> <!-- row.// -->
     </form>
 
@@ -72,9 +79,10 @@ if (isset($_POST["cari"])) {
                                 <div class="col-xl-9 col-md-8 border-start">
                                     <div class="card-body">
                                         <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
-                                        <p class="mb-1 text-muted"><?= $s['tanggal']; ?></p>
+                                        <p class="mb-1 text-muted">kategori <?= $s['nama_kategori']; ?></p>
                                         <p class="text-muted"><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></p>
                                         <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
+                                        <p class="float-end text-muted small mt-5"><i class="fa fa-calendar-alt"></i> <?= date("d-M-Y", strtotime($s['tanggal'])); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -143,12 +151,11 @@ if (isset($_POST["cari"])) {
         </section>
         <!-- End Pagination -->
 
-        </main>
-
-    </div>
     </div>
 </section>
 <!-- End Page Beranda -->
+
+
 
 <?php
 require './components/footer.php';

@@ -17,6 +17,7 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
 
 ?>
 <div class="container my-3">
+    <br>
     <div class="row">
         <div class="col">
             <h2>Hai, <?= $user['username']; ?> !</h2>
@@ -24,6 +25,7 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                 Selamat datang di halaman admin.
             </p>
             <hr>
+            <br>
         </div>
     </div>
     <div class="row gy-3">
@@ -34,7 +36,7 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                         <i class="fa fa-file"></i>
                     </span>
                     <figcaption class="pt-3">
-                        <h5 class="title">Data Sejarah Teknologi</h5>
+                        <a class="title h5" href="sejarah_teknologi.php">Data Sejarah Teknologi</a>
                         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
                     </figcaption>
                 </figure> <!-- itemside // -->
@@ -47,7 +49,7 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                         <i class="fa fa-users"></i>
                     </span>
                     <figcaption class="pt-3">
-                        <h5 class="title">Data Pengguna </h5>
+                        <a class="title h5" href="users.php">Data Pengguna</a>
                         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
                     </figcaption>
                 </figure> <!-- itemside // -->
@@ -60,13 +62,17 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                         <i class="fa fa-user"></i>
                     </span>
                     <figcaption class="pt-3">
-                        <h5 class="title">Profil</h5>
+                        <a class="title h5" href="profil_admin.php">Profil</a>
                         <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod </p>
                     </figcaption>
                 </figure> <!-- itemside // -->
             </article> <!-- card.// -->
         </div> <!-- col // -->
     </div> <!-- row // -->
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <br>

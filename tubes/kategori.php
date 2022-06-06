@@ -27,7 +27,7 @@ $kategori = query("SELECT * FROM kategori");
     <hr>
     <div class="row">
         <div class="col">
-            <table class="table table-responsive table-bordered">
+            <table class="table table-responsive table-bordered table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -38,7 +38,7 @@ $kategori = query("SELECT * FROM kategori");
                 <tbody>
                     <?php $i = 1; ?>
                     <?php foreach ($kategori as $k) : ?>
-                        <tr>
+                        <tr class="align-middle">
                             <th scope="row"><?= $i++; ?></th>
                             <td><?= $k['nama_kategori']; ?></td>
                             <td>

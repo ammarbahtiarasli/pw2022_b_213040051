@@ -112,6 +112,14 @@ if (
 </div>
 <!-- End Login -->
 
+<div class="col mt-5">
+    <center>
+        <img class="sponsor" src="./img/logo-unpas.png" width="35px" alt="" />
+        <img class="sponsor ms-3" src="./img/tif.png" width="35px" alt="" />
+    </center>
+</div>
+
+
 <?php
 require './layouts/script.php';
 ?>

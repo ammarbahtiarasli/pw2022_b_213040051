@@ -42,6 +42,9 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Beranda </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="populer.php">Populer </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="tentang.php?tentang">Tentang </a>
                     </li>
                 </ul>
@@ -58,6 +61,8 @@
             <nav class="nav nav-pills mx-auto">
                 <a class="nav-link mx-2 active" aria-current="page" href="index.php?beranda">
                     <small class="text">Beranda</small> </a>
+                <a class="nav-link " href="populer.php">
+                    <small class=" text">Populer</small> </a>
                 <a class="nav-link " href="tentang.php?tentang">
                     <small class="text">Tentang</small> </a>
             </nav>
