@@ -10,6 +10,11 @@ if (!isset($_SESSION["login"])) {
 }
 
 $kategori = query("SELECT * FROM kategori");
+
+// tombol cari ditekan
+if (isset($_POST["cari"])) {
+    $kategori = cari_kategori($_POST["keyword"]);
+}
 ?>
 
 
@@ -18,9 +23,10 @@ $kategori = query("SELECT * FROM kategori");
     <h2>Daftar Kategori</h2>
     <div class="d-flex justify-content-between col-lg mt-3">
         <a href="tambah_kategori.php" class="btn btn-success-light">Tambah Data Kategori</a>
-        <form action="#">
+        <form action="#" method="POST">
             <div class="input-group">
-                <input type="search" class="form-control" placeholder="Cari  ...">
+                <input type="text" placeholder="Cari ..." name="keyword" class="form-control" autocomplete="off">
+                <button type="submit" name="cari" hidden></button>
             </div>
         </form>
     </div>
@@ -49,22 +55,6 @@ $kategori = query("SELECT * FROM kategori");
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
-            <section class="d-flex mt-4">
-                <nav class="ms-3">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                            <span class="page-link">2</span>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Selanjutnya</a>
-                        </li>
-                    </ul>
-                </nav>
-            </section>
-
         </div>
     </div>
 </div>

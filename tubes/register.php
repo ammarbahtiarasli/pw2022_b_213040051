@@ -64,7 +64,7 @@ if (
             </div>
             <div class="mb-4">
                 <button type="submit" name="register" class="btn btn-success-light w-100"> Daftar </button>
-                <a class=" mt-3 btn btn-light w-100" href="index.php"> Kembali </a>
+                <a class=" mt-3 btn btn-light w-100" href="javascript: history.back()"> Kembali </a>
             </div>
         </form>
         <hr>
@@ -72,6 +72,13 @@ if (
     </div>
 </div>
 <!-- End Register -->
+
+<div class="col mt-5">
+    <center>
+        <img class="sponsor" src="./img/logo-unpas.png" width="35px" alt="" />
+        <img class="sponsor ms-3" src="./img/tif.png" width="35px" alt="" />
+    </center>
+</div>
 
 <?php
 require './layouts/script.php';

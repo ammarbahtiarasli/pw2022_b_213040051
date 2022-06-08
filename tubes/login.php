@@ -102,7 +102,7 @@ if (
             </div>
             <div class="mb-4">
                 <button type="submit" name="login" class="btn btn-success-light w-100"> Masuk </button>
-                <a class=" mt-3 btn btn-light w-100" href="index.php"> Kembali </a>
+                <a class=" mt-3 btn btn-light w-100" href="javascript: history.back()"> Kembali </a>
             </div>
         </form>
         <hr>

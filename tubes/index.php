@@ -63,7 +63,7 @@ if (isset($_POST["cari"])) {
 <section class="padding-y bg-light">
     <div class="container">
         <div class="row">
-            <h2>Terbaru</h2>
+            <h2>List Artikel</h2>
             <hr>
             <main class="col-lg-8">
                 <div id="container">
@@ -89,8 +89,8 @@ if (isset($_POST["cari"])) {
                         </article>
                     <?php endforeach; ?>
                     <!-- End Konten -->
-                </div>
 
+                </div>
             </main>
             <aside class="col-lg-4">
 

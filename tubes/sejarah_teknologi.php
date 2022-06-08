@@ -68,7 +68,7 @@ if (isset($_POST["cari"])) {
                             <td><?= $s['judul']; ?></td>
                             <td><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></td>
                             <td><?= $s['nama_kategori']; ?></td>
-                            <td><?= $s['tanggal']; ?></td>
+                            <td><?= date("d-M-Y", strtotime($s['tanggal'])); ?></td>
                             <td class="">
                                 <a href="ubah_sejarah.php?id_sejarah=<?= $s["id_sejarah"]; ?>" class="btn btn-warning-light">Ubah</a>
                                 <a href="hapus_sejarah.php?id_sejarah=<?= $s["id_sejarah"]; ?>" class="btn btn-danger-light ms-2" onclick="return confirm('yakin ?');">Hapus</a>

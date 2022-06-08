@@ -9,22 +9,22 @@ require 'functions.php';
 require './layouts/header.php';
 require './components/navbar_admin.php';
 
-$users = query("SELECT * FROM users NATURAL JOIN level ORDER BY id_user DESC");
+$users = query("SELECT * FROM users NATURAL JOIN level");
 
+// tombol cari ditekan
+if (isset($_POST["cari"])) {
+    $users = cari_user($_POST["keyword"]);
+}
 ?>
 
 <!-- Page Users Admin -->
 <div class="container my-3">
     <h2>Daftar Pengguna</h2>
     <div class="d-flex justify-content-between col-lg col-md col-12 mt-3">
-        <form action="#">
+        <form action="#" method="POST">
             <div class="input-group">
-                <select class="form-select bg-light" style="max-width:30%">
-                    <option>Semua</option>
-                    <option>Admin</option>
-                    <option>User</option>
-                </select>
-                <input type="text" placeholder="Cari ..." class="form-control" name="">
+                <input type="text" placeholder="Cari ..." name="keyword" class="form-control" autocomplete="off">
+                <button type="submit" name="cari" hidden></button>
             </div>
         </form>
         <a href="cetak_users.php" target="_blank" class="btn btn-light">Export PDF</a>
@@ -49,14 +49,14 @@ $users = query("SELECT * FROM users NATURAL JOIN level ORDER BY id_user DESC");
                         <tr class="align-middle">
                             <th scope="row"><?= $i++; ?></th>
                             <td>
-                                <img src="./img/nophoto.png" width="125px" alt="gambar">
+                                <img src="./img/<?= $u['gambar']; ?>" width="125px" alt="gambar">
                             </td>
                             <td><?= $u['username']; ?></td>
                             <td><?= $u['email']; ?></td>
                             <td><?= $u['nama_level']; ?></td>
                             <td>
                                 <a href="ubah_user.php?id_user=<?= $u['id_user']; ?>" class="btn btn-warning-light">Ubah</a>
-                                <a href="" class="btn btn-danger-light">Hapus</a>
+                                <a href="hapus_user.php?id_user=<?= $u['id_user']; ?>" class="btn btn-danger-light">Hapus</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

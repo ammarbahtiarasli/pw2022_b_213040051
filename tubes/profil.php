@@ -15,11 +15,17 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
 <!-- Page Profil-->
 <section class="padding-y bg-light">
     <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Profil</li>
+            </ol>
+        </nav>
 
         <div class="row">
             <aside class="col-lg-3 col-xl-3">
                 <!--  COMPONENT MENU LIST  -->
-                <nav class="nav flex-lg-column nav-pills mb-4">
+                <nav class="nav flex-lg-column nav-pills mb-4 d-sm-none d-lg-block ">
                     <a class="nav-link active" href="#">Profil</a>
                     <a class="nav-link" href="logout.php">Keluar</a>
                 </nav>

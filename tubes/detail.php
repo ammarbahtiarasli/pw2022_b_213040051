@@ -41,7 +41,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
 
                         <header class="section-heading">
                             <h2 class="section-title"><?= $sejarah['judul']; ?></h2>
-                            <p class="lead"><?= $sejarah['nama_kategori']; ?> - <?= $sejarah['tanggal']; ?></p>
+                            <p class="lead"><?= $sejarah['nama_kategori']; ?> - <?= date("d-M-Y", strtotime($sejarah['tanggal'])); ?></p>
                         </header>
 
                         <p><?= htmlspecialchars_decode($sejarah['body']); ?></p>

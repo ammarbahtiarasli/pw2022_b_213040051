@@ -146,6 +146,25 @@ function cari($keyword)
     return query($query);
 }
 
+function cari_kategori($keyword)
+{
+    $query = "SELECT * FROM kategori
+                WHERE
+                nama_kategori LIKE '%$keyword%'
+                ";
+    return query($query);
+}
+
+function cari_user($keyword)
+{
+    $query = "SELECT * FROM users NATURAL JOIN level
+                WHERE
+                username LIKE '%$keyword%' OR
+                email LIKE '%$keyword%'
+                ";
+    return query($query);
+}
+
 function tambah_kategori($data)
 {
     $conn = Koneksi();
@@ -230,12 +249,23 @@ function ubah_user($data)
     $id_user = $data["id_user"];
     $username = htmlspecialchars($data["username"]);
     $email = htmlspecialchars($data["email"]);
-    $password = htmlspecialchars($data["password"]);
+    $id_level = htmlspecialchars($data["id_level"]);
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+
+    // cek apakah user pilih gambar baru atau tidak
+    if (
+        $_FILES['gambar']['error'] === 4
+    ) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = upload();
+    }
 
     $query = "UPDATE users SET
                 username = '$username',
                 email = '$email',
-                password = '$password'
+                gambar = '$gambar',
+                id_level = '$id_level'
                 WHERE id_user = $id_user
                 ";
     mysqli_query($conn, $query) or die(mysqli_error($conn));
