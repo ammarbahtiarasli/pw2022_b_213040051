@@ -156,6 +156,15 @@ function cari_user($keyword)
     return query($query);
 }
 
+function cari_kategori($keyword)
+{
+    $query = "SELECT * FROM kategori
+                WHERE
+                nama_kategori LIKE '%$keyword%'
+                ";
+    return query($query);
+}
+
 function tambah_kategori($data)
 {
     $conn = Koneksi();

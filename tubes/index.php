@@ -86,30 +86,42 @@ if (isset($_POST["cari"]) and $_POST["kategori"] != "") {
             <main class="col-lg-8">
                 <div id="container">
                     <!-- Konten -->
-                    <?php foreach ($sejarah as $s) : ?>
-                        <article class="card card-product-list product-lg">
-                            <div class="row g-0">
-                                <aside class="col-xl-3 col-md-4">
-                                    <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="img-wrap">
-                                        <img src="./img/<?= $s['gambar']; ?>">
-                                    </a>
-                                </aside> <!-- col.// -->
-                                <div class="col-xl-9 col-md-8 border-start">
-                                    <div class="card-body">
-                                        <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
-                                        <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
-                                        <p class="mb-1 text-muted">kategori <?= $s['nama_kategori']; ?></p>
-                                        <p class="text-muted"><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></p>
-                                        <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
-                                        <p class="float-end text-muted small mt-5"><i class="fa fa-calendar-alt"></i> <?= date("d-M-Y", strtotime($s['tanggal'])); ?></p>
+                    <?php if ($jumlahData > 0) : ?>
+                        <?php foreach ($sejarah as $s) : ?>
+                            <article class="card card-product-list product-lg">
+                                <div class="row g-0">
+                                    <aside class="col-xl-3 col-md-4">
+                                        <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="img-wrap">
+                                            <img src="./img/<?= $s['gambar']; ?>">
+                                        </a>
+                                    </aside> <!-- col.// -->
+                                    <div class="col-xl-9 col-md-8 border-start">
+                                        <div class="card-body">
+                                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                                            <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
+                                            <p class="mb-1 text-muted">kategori <?= $s['nama_kategori']; ?></p>
+                                            <p class="text-muted"><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></p>
+                                            <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>">Baca Selengkapnya</a>
+                                            <p class="float-end text-muted small mt-5"><i class="fa fa-calendar-alt"></i> <?= date("d-M-Y", strtotime($s['tanggal'])); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach; ?>
+                        <hr>
+                    <?php else : ?>
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-12">
+                                    <div class="alert alert-danger" role="alert">
+                                        Data tidak ditemukan
                                     </div>
                                 </div>
                             </div>
-                        </article>
-                    <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
                     <!-- End Konten -->
 
-                    <hr>
                     <!-- Pagination -->
                     <section class="d-flex mt-4">
                         <nav class="ms-3">
