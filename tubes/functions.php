@@ -146,15 +146,6 @@ function cari($keyword)
     return query($query);
 }
 
-function cari_kategori($keyword)
-{
-    $query = "SELECT * FROM kategori
-                WHERE
-                nama_kategori LIKE '%$keyword%'
-                ";
-    return query($query);
-}
-
 function cari_user($keyword)
 {
     $query = "SELECT * FROM users NATURAL JOIN level
@@ -332,6 +323,31 @@ function hapus_user($id_user)
 
     $query = "DELETE FROM users WHERE id_user = $id_user";
     mysqli_query($conn, $query) or die(mysqli_error(($conn)));
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubah_password($data)
+{
+    $conn = Koneksi();
+
+    $id_user = $data["id_user"];
+    $password = mysqli_real_escape_string($conn, $data["password"]);
+    $password2 = mysqli_real_escape_string($conn, $data["password2"]);
+
+    // cek konfirmasi password
+    if ($password !== $password2) {
+        echo "<script>
+				alert('konfirmasi password tidak sesuai!');
+		      </script>";
+        return false;
+    }
+
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    // ganti password baru ke database
+    mysqli_query($conn, "UPDATE users SET password = '$password' WHERE id_user = $id_user");
 
     return mysqli_affected_rows($conn);
 }

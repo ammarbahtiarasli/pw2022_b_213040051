@@ -8,8 +8,8 @@
 
             <div class="order-lg-last flex-shrink-0">
                 <?php if (!isset($_SESSION['login'])) : ?>
-                    <a class="btn btn-success-light" href="login.php?login">Masuk </a>
-                    <a class="btn btn-light" href="register.php?register">Daftar </a>
+                    <a class="btn btn-success-light" href="login.php">Masuk </a>
+                    <a class="btn btn-light" href="register.php">Daftar </a>
                 <?php else : ?>
                     <?php
                     $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION[id_user]'")[0];
@@ -20,7 +20,7 @@
                             <span><?= $user['username']; ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <li> <a class="dropdown-item" href="profil.php?profil">Profil</a> </li>
+                            <li> <a class="dropdown-item" href="profil.php">Profil</a> </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -55,7 +55,7 @@
                         <a class="nav-link" href="populer.php">Populer </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tentang.php?tentang">Tentang </a>
+                        <a class="nav-link" href="tentang.php">Tentang </a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +69,7 @@
     <aside class="col-xl-6 d-lg-none d-sm-block">
         <div class="card p-3 nav-blur">
             <nav class="nav nav-pills mx-auto">
-                <a class="nav-link mx-2 active" aria-current="page" href="index.php?beranda">
+                <a class="nav-link mx-2 active" aria-current="page" href="index.php">
                     <small class="text">Beranda</small> </a>
                 <a class="nav-link " href="terbaru.php">
                     <small class=" text">Terbaru</small> </a>

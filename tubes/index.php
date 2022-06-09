@@ -19,8 +19,24 @@ if (isset($_POST["cari"])) {
     $sejarah = cari($_POST["keyword"]);
 }
 
-if (isset($_POST["cari"])) {
-    $sejarah = cari($_POST["kategori"]);
+if (isset($_POST["cari"]) and $_POST["kategori"] != "") {
+    // $sejarah = cari($_POST["kategori"]);
+    $cariKategori = $_POST["kategori"];
+    $jumlahDataPerHalaman = 5;
+    $jumlahData = count(query("SELECT * FROM sejarah_teknologi  NATURAL JOIN kategori where nama_kategori = '$cariKategori'"));
+    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+    $halamanAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
+    $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+
+    $sejarah = query("SELECT * FROM sejarah_teknologi  NATURAL JOIN kategori where nama_kategori = '$cariKategori' ORDER BY id_sejarah LIMIT $awalData, $jumlahDataPerHalaman");
+} else {
+    $jumlahDataPerHalaman = 5;
+    $jumlahData = count(query("SELECT * FROM sejarah_teknologi"));
+    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+    $halamanAktif = (isset($_GET["page"])) ? $_GET["page"] : 1;
+    $awalData = ($jumlahDataPerHalaman * $halamanAktif) - $jumlahDataPerHalaman;
+
+    $sejarah = query("SELECT * FROM sejarah_teknologi  NATURAL JOIN kategori ORDER BY id_sejarah LIMIT $awalData, $jumlahDataPerHalaman");
 }
 ?>
 
@@ -34,8 +50,9 @@ if (isset($_POST["cari"])) {
 
     <header class="text-center mt-5">
         <h1 class=" text-white">Website Sejarah Teknologi</h2>
-            <p class="text-white">~
-                Temukan sejarah terbaik di Dunia ~</p>
+            <p class="text-white">
+                ~ Temukan sejarah terbaik di Dunia ~
+            </p>
     </header>
 
     <form class="mx-auto w-100 mb-3" action="#" method="POST" style="max-width: 870px">
@@ -92,6 +109,28 @@ if (isset($_POST["cari"])) {
                     <?php endforeach; ?>
                     <!-- End Konten -->
 
+                    <hr>
+                    <!-- Pagination -->
+                    <section class="d-flex mt-4">
+                        <nav class="ms-3">
+                            <ul class="pagination">
+                                <?php if ($halamanAktif > 1) : ?>
+                                    <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif - 1; ?>">Sebelumnya</a></li>
+                                <?php endif; ?>
+                                <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
+                                    <?php if ($i == $halamanAktif) : ?>
+                                        <li class="page-item active"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
+                                    <?php else : ?>
+                                        <li class="page-item"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
+                                    <?php endif; ?>
+                                <?php endfor; ?>
+                                <?php if ($halamanAktif < $jumlahHalaman) : ?>
+                                    <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif + 1; ?>">Selanjutnya</a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </nav>
+                    </section>
+                    <!-- End Pagination -->
                 </div>
             </main>
             <aside class="col-lg-4">
@@ -129,29 +168,7 @@ if (isset($_POST["cari"])) {
         </div>
         <!-- End Konten -->
 
-        <hr>
 
-        <!-- Pagination -->
-        <section class="d-flex mt-4">
-            <nav class="ms-3">
-                <ul class="pagination">
-                    <?php if ($halamanAktif > 1) : ?>
-                        <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif - 1; ?>">Sebelumnya</a></li>
-                    <?php endif; ?>
-                    <?php for ($i = 1; $i <= $jumlahHalaman; $i++) : ?>
-                        <?php if ($i == $halamanAktif) : ?>
-                            <li class="page-item active"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
-                        <?php else : ?>
-                            <li class="page-item"><a class="page-link" href="?page=<?= $i; ?>"><?= $i; ?></a></li>
-                        <?php endif; ?>
-                    <?php endfor; ?>
-                    <?php if ($halamanAktif < $jumlahHalaman) : ?>
-                        <li class="page-item"><a class="page-link" href="?page=<?= $halamanAktif + 1; ?>">Selanjutnya</a></li>
-                    <?php endif; ?>
-                </ul>
-            </nav>
-        </section>
-        <!-- End Pagination -->
 
     </div>
 </section>

@@ -19,7 +19,6 @@ $level = query("SELECT * FROM level");
 
 // Cek apakah tombol tambah di klik
 if (isset($_POST["ubah"])) {
-
     // cek apakah data berhasil diubah atau tidak
     if (ubah_user($_POST) > 0) {
         echo "<script>

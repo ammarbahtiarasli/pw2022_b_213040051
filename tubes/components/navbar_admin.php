@@ -8,8 +8,8 @@
 
             <div class="order-lg-last flex-shrink-0">
                 <?php if (!isset($_SESSION['login'])) : ?>
-                    <a class="btn btn-success-light" href="login.php?login">Masuk </a>
-                    <a class="btn btn-light" href="register.php?register">Daftar </a>
+                    <a class="btn btn-success-light" href="login.php">Masuk </a>
+                    <a class="btn btn-light" href="register.php">Daftar </a>
                 <?php else : ?>
                     <?php
                     $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION[id_user]'")[0];
@@ -20,7 +20,11 @@
                             <span> <?= $user['username']; ?></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li> <a class="dropdown-item" href="profil_admin.php?profil">Profil</a> </li>
+                            <li> <a class="dropdown-item" href="profil_admin.php">Profil</a> </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li> <a class="dropdown-item" target="_blank" href="https://srv46.niagahoster.com:2096/cpsess1949319814/3rdparty/roundcube/?_task=mail&_mbox=INBOX">Email</a> </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -38,16 +42,16 @@
             <div class="collapse navbar-collapse d-none d-lg-block" id="navbar_main">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index_admin.php?dashboard"> Dashboard </a>
+                        <a class="nav-link" href="index_admin.php"> Dashboard </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sejarah_teknologi.php?sejarah"> Sejarah Teknologi </a>
+                        <a class="nav-link" href="sejarah_teknologi.php"> Sejarah Teknologi </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="kategori.php?kategori"> Kategori </a>
+                        <a class="nav-link" href="kategori.php"> Kategori </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="users.php?pengguna"> Pengguna </a>
+                        <a class="nav-link" href="users.php"> Pengguna </a>
                     </li>
                 </ul>
             </div>

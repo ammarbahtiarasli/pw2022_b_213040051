@@ -26,6 +26,23 @@ if (isset($_POST["ubah"])) {
             </script>";
     }
 }
+
+// Cek apakah tombol tambah di klik
+if (isset($_POST["ubah_pw"])) {
+    // cek apakah data berhasil diubah atau tidak
+    if (ubah_password($_POST) > 0) {
+
+        echo "<script>
+            alert('Password berhasil diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    } else {
+        echo "<script>
+            alert('Password gagal diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    }
+}
 ?>
 
 <!-- Page Profil-->
@@ -90,7 +107,36 @@ if (isset($_POST["ubah"])) {
                         <div class="row" style="max-width:920px">
                             <div class="col-md">
                                 <article class="box mb-3 bg-light">
-                                    <a class="btn float-end btn-light btn-sm" href="#">Ganti</a>
+                                    <button type="button" class="btn float-end btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Ganti</button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="" method="POST">
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Password Baru</label>
+                                                            <input class="form-control" placeholder="password" type="text" name="password" required>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Konfirmasi Password</label>
+                                                            <input class="form-control" placeholder="password" type="text" name="password2">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-success-light" id="ubah_pw" name="ubah_pw">Save changes</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <p class="title mb-0">Password</p>
                                     <small class="text-muted d-block" style="width:70%">
                                         Kamu dapat mengatur ulang atau mengubah kata sandi dengan mengklik di sini</small>
