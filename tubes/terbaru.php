@@ -31,7 +31,14 @@ $kategori = query("SELECT * FROM kategori");
                             <img height="250" class="mix-blend-multiply" src="./img/<?= $s['gambar']; ?>">
                         </a>
                         <figcaption class=" pt-2">
-                            <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
+                            <?php if (!isset($_SESSION['login'])) : ?>
+                            <?php else : ?>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="id_user" id="id_user" value="<?= $user['id_user']; ?>">
+                                    <input type="hidden" name="id_sejarah" id="id_sejarah" value="<?= $s['id_sejarah']; ?>">
+                                    <button type="submit" name="disukai" title="sukai" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </button>
+                                </form>
+                            <?php endif; ?>
                             <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>"><strong class="price"><?= $s['judul']; ?></strong></a>
                             <p class="text-muted small mt-1"><?= $s['nama_kategori']; ?></p>
                             <hr>

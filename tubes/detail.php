@@ -17,11 +17,6 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
 
 ?>
 
-<!-- Back to top button -->
-<button type="button" class="btn btn-success-light btn-floating btn-lg" id="btn-back-to-top">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
 <!-- Page Detail Sejarah -->
 <section class="padding-y shadow-sm">
     <div class="container">

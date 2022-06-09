@@ -360,3 +360,27 @@ function ubah_password($data)
 
     return mysqli_affected_rows($conn);
 }
+
+function disukai($data)
+{
+    $conn = Koneksi();
+
+    $id_sejarah = htmlspecialchars($data["id_sejarah"]);
+    $id_user = htmlspecialchars($data["id_user"]);
+
+
+    $query = "INSERT INTO love VALUES (null, '$id_sejarah', '$id_user')";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapus_disukai($id_love)
+{
+    $conn = Koneksi();
+
+    $query = "DELETE FROM love WHERE id_love = $id_love";
+    mysqli_query($conn, $query) or die(mysqli_error(($conn)));
+
+    return mysqli_affected_rows($conn);
+}

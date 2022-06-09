@@ -67,7 +67,7 @@ $total_kategori = query("SELECT * FROM kategori");
                         <i class="fa fa-file"></i>
                     </span>
                     <figcaption class="pt-3">
-                        <a class="title h5" href="profil_admin.php">Data Kategori</a>
+                        <a class="title h5" href="kategori.php">Data Kategori</a>
                         <p class="mb-0 mt-2 title h6">Jumlah data : <?= count($total_kategori); ?></p>
                     </figcaption>
                 </figure> <!-- itemside // -->
