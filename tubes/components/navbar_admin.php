@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="./img/logo.png" height="40" class="logo">
+                <img src="./img/logo-st.png" height="40" class="logo">
             </a>
 
             <div class="order-lg-last flex-shrink-0">
@@ -16,7 +16,7 @@
                     ?>
                     <div class="nav-item dropdown">
                         <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="icon-xs bg-gray rounded-circle me-2"><i class="fa fa-user"></i> </span>
+                            <img src="./img/<?= $user['gambar']; ?>" alt="" class="icon-sm bg-gray rounded-circle me-2">
                             <span> <?= $user['username']; ?></span>
                         </a>
                         <ul class="dropdown-menu">

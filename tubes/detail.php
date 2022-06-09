@@ -33,7 +33,7 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
         </nav>
         <div class="row">
             <div class="col">
-                <main class="bg-dark p-5" style="min-height:500px; background-image: url('./img/<?= $sejarah['gambar']; ?>');">
+                <main class="bg-dark p-5" style="min-height:500px; background-size:cover; background-repeat: no-repeat; background-image: url('./img/<?= $sejarah['gambar']; ?>');">
                 </main>
                 <hr>
                 <section class="padding-y">

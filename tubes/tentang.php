@@ -12,14 +12,13 @@ require './components/navbar.php';
             <div class="col">
                 <article class="p-4 p-xl-5 text-center">
                     <img src="./img/logo.png" class="img-avatar img-lg">
-                    <h2 class="card-title mt-3">Ahmad Ammar Bahtiar 213040051</h2>
+                    <h2 class="card-title mt-3">Ahmad Ammar Bahtiar</h2>
                     <p>
-                        Pangandaran, Indonesia<br>
-                        ahmad.213040051@mail.unpas.ac.id
+                        Pangandaran, ID<br>
+                        admin@ammarbahtiar.com
                     </p>
                     <a href="https://instagram.com/ammarbahtiarasli" class="btn btn-light">Ikuti</a>
                     <a href="https://ammarbahtiar.my.id" class="btn btn-light">Portofolio</a>
-                    <a href="https://github.com/ammarbahtiarasli" class="btn btn-light">Github</a>
                 </article>
 
                 <div class="row justify-content-center align-items-center">

@@ -69,7 +69,7 @@ if (
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./img/logo.png" height="40" class="logo">
+                <img src="./img/logo-st.png" height="40" class="logo">
             </a>
         </div>
     </nav>
@@ -102,7 +102,7 @@ if (
             </div>
             <div class="mb-4">
                 <button type="submit" name="login" class="btn btn-success-light w-100"> Masuk </button>
-                <a class=" mt-3 btn btn-light w-100" href="javascript: history.back()"> Kembali </a>
+                <a class=" mt-3 btn btn-light w-100" href="index.php"> Kembali </a>
             </div>
         </form>
         <hr>
@@ -118,7 +118,6 @@ if (
         <img class="sponsor ms-3" src="./img/tif.png" width="35px" alt="" />
     </center>
 </div>
-
 
 <?php
 require './layouts/script.php';

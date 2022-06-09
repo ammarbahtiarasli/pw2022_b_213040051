@@ -2,8 +2,8 @@
 <header class="section-header border-bottom d-sm-none d-lg-block sticky-top">
     <nav class=" navbar navbar-expand-lg navbar-light nav-blur ">
         <div class=" container">
-            <a class="navbar-brand" href="index_admin.php?dashboard">
-                <img src="./img/logo.png" height="40" class="logo">
+            <a class="navbar-brand" href="index_admin.php">
+                <img src="./img/logo-st.png" height="40" class="logo">
             </a>
 
             <div class="order-lg-last flex-shrink-0">
@@ -16,11 +16,18 @@
                     ?>
                     <div class="nav-item dropdown">
                         <a class="nav-link py-0 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="icon-xs bg-gray rounded-circle me-2"><i class="fa fa-user"></i> </span>
-                            <span><?= $user['username']; ?> </span>
+                            <img src="./img/<?= $user['gambar']; ?>" alt="" class="icon-sm bg-gray rounded-circle me-2">
+                            <span><?= $user['username']; ?>
                         </a>
                         <ul class="dropdown-menu">
                             <li> <a class="dropdown-item" href="profil.php?profil">Profil</a> </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li> <a data-bs-toggle="offcanvas" href="#offcanvas_cart">
+                                    <span class="dropdown-item"> Disukai</span>
+                                </a>
+                            </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

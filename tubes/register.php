@@ -25,7 +25,7 @@ if (
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./img/logo.png" height="40" class="logo">
+                <img src="./img/logo-st.png" height="40" class="logo">
             </a>
         </div>
     </nav>
@@ -36,10 +36,11 @@ if (
 <div class="card shadow mx-auto" style="max-width:400px; margin-top:40px;">
     <div class="card-body">
         <h2 class="card-title mb-4">Daftar</h2>
-        <form action="" method="POST">
-            <div class="mb-3">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <input type="file" class="form-control" id="gambar" name="gambar" hidden>
+            <div class=" mb-3">
                 <label class="form-label">username*</label>
-                <input class="form-control" placeholder="username" type="text" name="username" required>
+                <input class="form-control" placeholder="username" type="text" name="username" required maxlength="25">
             </div>
             <div class="mb-3">
                 <label class="form-label">Email</label>
@@ -53,18 +54,9 @@ if (
                 <label class="form-label">Konfirmasi Password</label>
                 <input class="form-control" placeholder="password" type="password" name="password2">
             </div>
-            <div class="mb-3">
-                <label class="form-label">Daftar sebagai :</label>
-                <select class="form-select" name="id_level">
-                    <option selected value="2">Default</option>
-                    <?php foreach ($level as $l) : ?>
-                        <option disabled value="<?= $l['id_level']; ?>"><?= $l['nama_level']; ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
             <div class="mb-4">
                 <button type="submit" name="register" class="btn btn-success-light w-100"> Daftar </button>
-                <a class=" mt-3 btn btn-light w-100" href="javascript: history.back()"> Kembali </a>
+                <a class=" mt-3 btn btn-light w-100" href="index.php"> Kembali </a>
             </div>
         </form>
         <hr>

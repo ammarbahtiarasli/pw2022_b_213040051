@@ -60,7 +60,7 @@ function upload()
     // cek apakah yang di upload bukan gambar
     if (!in_array(strtolower($filetytpe), $allowedtype)) {
         echo "<script>
-            alert('upload gambar nya yang bener dong !');
+            alert('yang di upload bukan gambar');
             </script>";
         return false;
     }
@@ -212,7 +212,20 @@ function register($data)
     $email = strtolower($data["email"]);
     $password = mysqli_real_escape_string($conn, $data["password"]);
     $password2 = mysqli_real_escape_string($conn, $data["password2"]);
-    $id_level = ($data["id_level"]);
+    $id_level = 1;
+
+    // cek apakah user ttidak mengupload gambar
+    if ($_FILES["gambar"]["error"] === 4) {
+        // pilih gambar default
+        $gambar = 'nophoto.png';
+    } else {
+        // jalankan fungsi upload
+        $gambar = upload();
+        // cek jika upload gagal
+        if (!$gambar) {
+            return false;
+        }
+    }
 
     // cek username sudah ada atau belum
     $result = mysqli_query($conn, "SELECT username FROM users WHERE username = '$username'");
@@ -237,7 +250,7 @@ function register($data)
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambahkan userbaru ke database
-    mysqli_query($conn, "INSERT INTO users VALUES('', '$username', '$email', '$password', '', '$id_level')");
+    mysqli_query($conn, "INSERT INTO users VALUES('', '$username', '$email', '$password', '$gambar', '$id_level')");
 
     return mysqli_affected_rows($conn);
 }
@@ -250,6 +263,37 @@ function ubah_user($data)
     $username = htmlspecialchars($data["username"]);
     $email = htmlspecialchars($data["email"]);
     $id_level = htmlspecialchars($data["id_level"]);
+    $gambarLama = htmlspecialchars($data["gambarLama"]);
+
+    // cek apakah user pilih gambar baru atau tidak
+    if (
+        $_FILES['gambar']['error'] === 4
+    ) {
+        $gambar = $gambarLama;
+    } else {
+        $gambar = upload();
+    }
+
+    $query = "UPDATE users SET
+                username = '$username',
+                email = '$email',
+                gambar = '$gambar',
+                id_level = '$id_level'
+                WHERE id_user = $id_user
+                ";
+    mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    return mysqli_affected_rows($conn);
+}
+
+function ubah_akun($data)
+{
+    $conn = Koneksi();
+
+    $id_user = $data["id_user"];
+    $username = htmlspecialchars($data["username"]);
+    $email = htmlspecialchars($data["email"]);
+    $id_level = 1;
     $gambarLama = htmlspecialchars($data["gambarLama"]);
 
     // cek apakah user pilih gambar baru atau tidak

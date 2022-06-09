@@ -1,7 +1,7 @@
 <?php
 session_start();
-require './layouts/header.php';
 require 'functions.php';
+require './layouts/header.php';
 require './components/navbar.php';
 
 if (!isset($_SESSION["login"])) {
@@ -10,6 +10,22 @@ if (!isset($_SESSION["login"])) {
 }
 $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION[id_user]'")[0];
 
+// Cek apakah tombol tambah di klik
+if (isset($_POST["ubah"])) {
+
+    // cek apakah data berhasil diubah atau tidak
+    if (ubah_akun($_POST) > 0) {
+        echo "<script>
+            alert('data berhasil diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    } else {
+        echo "<script>
+            alert('data gagal diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    }
+}
 ?>
 
 <!-- Page Profil-->
@@ -35,42 +51,56 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                 <article class="card">
                     <div class="card-body">
 
-                        <form>
+                        <form action="" enctype="multipart/form-data" method="POST">
+                            <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
+                            <input type="hidden" name="gambarLama" value="<?= $user['gambar']; ?>">
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="row gx-3">
                                         <div class="col-lg-12  mb-3">
                                             <label class="form-label">Username</label>
-                                            <input class="form-control" type="text" placeholder="<?= $user['username']; ?>" readonly>
+                                            <input class="form-control" name="username" id="username" type="text" value="<?= $user['username']; ?>" maxlength="25">
                                         </div> <!-- col .// -->
-
                                         <div class="col-lg-12  mb-3">
                                             <label class="form-label">Email</label>
-                                            <input class="form-control" type="text" placeholder="<?= $user['email']; ?>" readonly>
+                                            <input class="form-control" name="email" id="email" type="text" value="<?= $user['email']; ?>">
                                         </div> <!-- col .// -->
-
                                         <div class="col-lg-12  mb-3">
                                             <label class="form-label">Level</label>
-                                            <input class="form-control" type="text" placeholder="<?= $user['nama_level']; ?>" readonly>
+                                            <input class="form-control" name="level" id="level" type="text" value="<?= $user['nama_level']; ?>" disabled>
                                         </div> <!-- col .// -->
                                     </div> <!-- row.// -->
+                                    <button type="submit" name="ubah" class="btn btn-success-light mt-2">Simpan Perubahan</button>
                                 </div> <!-- col.// -->
                                 <aside class="col-lg-4">
-                                    <figure class="text-lg-center">
-                                        <h6>Foto</h6>
-                                        <img class="img-lg img-avatar" src="./img/nophoto.png" alt="User Photo">
+                                    <figure class="text-lg-center ">
+                                        <h6 class="mt-3">Foto</h6>
+                                        <img class="img-lg img-avatar mt-3" src="./img/<?= $user['gambar']; ?>" alt="User Photo">
+                                        <p class="mt-1">Gambar baru :</p>
+                                        <img src="" class=" flex mx-auto img-lg img-avatar mt-2" id="img-preview" style="display: none;" alt="User Photo">
+                                        <br>
+                                        <input type="file" class="form-control mt-2" name="gambar" id="gambar" onchange="previewImage();">
                                     </figure>
                                 </aside> <!-- col.// -->
                             </div> <!-- row.// -->
                         </form>
 
-                        <hr class="my-4">
+                        <hr class=" my-4">
 
                         <div class="row" style="max-width:920px">
                             <div class="col-md">
                                 <article class="box mb-3 bg-light">
                                     <a class="btn float-end btn-light btn-sm" href="#">Ganti</a>
-                                    <p class="title mb-0">Ganti Password</p>
+                                    <p class="title mb-0">Password</p>
+                                    <small class="text-muted d-block" style="width:70%">
+                                        Kamu dapat mengatur ulang atau mengubah kata sandi dengan mengklik di sini</small>
+                                </article>
+                            </div> <!-- col.// -->
+                            <div class="col-md">
+                                <article class="box mb-3 bg-light">
+                                    <a class="btn float-end btn-outline-danger btn-sm" href="hapus_akun.php?id_user=<?= $user['id_user']; ?>">Hapus</a>
+                                    <p class="title mb-0">Hapus Akun</p>
+                                    <small class="text-muted d-block" style="width:70%">Setelah kamu menghapus akun, akun tidak bisa kembali.</small>
                                 </article>
                             </div> <!-- col.// -->
                         </div> <!-- row.// -->

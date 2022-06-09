@@ -34,7 +34,8 @@ if (isset($_POST["cari"])) {
 
     <header class="text-center mt-5">
         <h1 class=" text-white">Website Sejarah Teknologi</h2>
-            <p class="text-white">~ Discover the best history in the World ~</p>
+            <p class="text-white">~
+                Temukan sejarah terbaik di Dunia ~</p>
     </header>
 
     <form class="mx-auto w-100 mb-3" action="#" method="POST" style="max-width: 870px">
@@ -63,7 +64,7 @@ if (isset($_POST["cari"])) {
 <section class="padding-y bg-light">
     <div class="container">
         <div class="row">
-            <h2>List Artikel</h2>
+            <h2>List Sejarah</h2>
             <hr>
             <main class="col-lg-8">
                 <div id="container">
@@ -78,6 +79,7 @@ if (isset($_POST["cari"])) {
                                 </aside> <!-- col.// -->
                                 <div class="col-xl-9 col-md-8 border-start">
                                     <div class="card-body">
+                                        <a href="#" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </a>
                                         <a href="detail.php?id_sejarah=<?= $s['id_sejarah']; ?>" class="h5 mb-1 title"><?= $s['judul']; ?></a>
                                         <p class="mb-1 text-muted">kategori <?= $s['nama_kategori']; ?></p>
                                         <p class="text-muted"><?= (htmlspecialchars_decode(str_word_count($s['body']) > 60 ? substr($s['body'], 0, 250) . "..." : $s['body'])); ?></p>
