@@ -93,7 +93,6 @@ if (isset($_POST["ubah_pw"])) {
                                     <figure class="text-lg-center ">
                                         <h6 class="mt-3">Foto</h6>
                                         <img class="img-lg img-avatar mt-3" src="./img/<?= $user['gambar']; ?>" alt="User Photo">
-                                        <p class="mt-1">Gambar baru :</p>
                                         <img src="" class=" flex mx-auto img-lg img-avatar mt-2" id="img-preview" style="display: none;" alt="User Photo">
                                         <br>
                                         <input type="file" class="form-control mt-2" name="gambar" id="gambar" onchange="previewImage();">
@@ -130,8 +129,8 @@ if (isset($_POST["ubah_pw"])) {
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-success-light" id="ubah_pw" name="ubah_pw">Save changes</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-success-light" id="ubah_pw" name="ubah_pw">Simpan Perubahan</button>
                                                     </div>
                                                 </form>
                                             </div>

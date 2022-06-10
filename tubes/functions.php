@@ -368,11 +368,19 @@ function disukai($data)
     $id_sejarah = htmlspecialchars($data["id_sejarah"]);
     $id_user = htmlspecialchars($data["id_user"]);
 
+    $cek = mysqli_query($conn, "SELECT * FROM love WHERE id_sejarah = $id_sejarah AND id_user = $id_user");
 
-    $query = "INSERT INTO love VALUES (null, '$id_sejarah', '$id_user')";
-    mysqli_query($conn, $query) or die(mysqli_error($conn));
+    if (mysqli_num_rows($cek) > 0) {
+        echo "<script>
+                alert('anda sudah menyukai sejarah ini!');
+                </script>";
+        return false;
+    } else {
+        $query = "INSERT INTO love VALUES (null, '$id_sejarah', '$id_user')";
+        mysqli_query($conn, $query) or die(mysqli_error($conn));
 
-    return mysqli_affected_rows($conn);
+        return mysqli_affected_rows($conn);
+    }
 }
 
 function hapus_disukai($id_love)

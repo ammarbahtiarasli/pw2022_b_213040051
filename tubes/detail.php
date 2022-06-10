@@ -15,6 +15,20 @@ $id_sejarah = $_GET["id_sejarah"];
 // query data sejarah berdasarkan id_sejarah
 $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id_sejarah = $id_sejarah")[0];
 
+// tombol like ditekan
+if (isset($_POST["disukai"])) {
+    if (disukai($_POST) > 0) {
+        echo "<script>
+            alert('sejarah telah ditambahkan ke daftar disukai');
+            document.location.href = 'index.php';
+            </script>";
+    } else {
+        echo "<script>
+            alert('Gagal menyukai');
+            document.location.href = 'index.php';
+            </script>";
+    }
+}
 ?>
 
 <!-- Page Detail Sejarah -->
@@ -35,6 +49,14 @@ $sejarah = query("SELECT * FROM sejarah_teknologi NATURAL JOIN kategori WHERE id
                     <div class="container">
 
                         <header class="section-heading">
+                            <?php if (!isset($_SESSION['login'])) : ?>
+                            <?php else : ?>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="id_user" id="id_user" value="<?= $user['id_user']; ?>">
+                                    <input type="hidden" name="id_sejarah" id="id_sejarah" value="<?= $sejarah['id_sejarah']; ?>">
+                                    <button type="submit" name="disukai" title="sukai" class="float-end btn btn-light btn-icon"> <i class="fa fa-heart"></i> </button>
+                                </form>
+                            <?php endif; ?>
                             <h2 class="section-title"><?= $sejarah['judul']; ?></h2>
                             <p class="lead"><?= $sejarah['nama_kategori']; ?> - <?= date("d-M-Y", strtotime($sejarah['tanggal'])); ?></p>
                         </header>

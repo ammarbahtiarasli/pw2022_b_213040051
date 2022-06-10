@@ -10,6 +10,39 @@ if (!isset($_SESSION["login"])) {
 }
 $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION[id_user]'")[0];
 
+// Cek apakah tombol tambah di klik
+if (isset($_POST["ubah"])) {
+
+    // cek apakah data berhasil diubah atau tidak
+    if (ubah_akun($_POST) > 0) {
+        echo "<script>
+            alert('data berhasil diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    } else {
+        echo "<script>
+            alert('data gagal diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    }
+}
+
+// Cek apakah tombol tambah di klik
+if (isset($_POST["ubah_pw"])) {
+    // cek apakah data berhasil diubah atau tidak
+    if (ubah_password($_POST) > 0) {
+
+        echo "<script>
+            alert('Password berhasil diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    } else {
+        echo "<script>
+            alert('Password gagal diubah');
+            document.location.href = 'profil.php';
+            </script>";
+    }
+}
 ?>
 
 <!-- Page Profil-->
@@ -60,7 +93,6 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                                     <figure class="text-lg-center ">
                                         <h6 class="mt-3">Foto</h6>
                                         <img class="img-lg img-avatar mt-3" src="./img/<?= $user['gambar']; ?>" alt="User Photo">
-                                        <p class="mt-1">Gambar baru :</p>
                                         <img src="" class=" flex mx-auto img-lg img-avatar mt-2" id="img-preview" style="display: none;" alt="User Photo">
                                         <br>
                                         <input type="file" class="form-control mt-2" name="gambar" id="gambar" onchange="previewImage();">
@@ -97,8 +129,8 @@ $user = query("SELECT * FROM users NATURAL JOIN level WHERE id_user = '$_SESSION
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-success-light" id="ubah_pw" name="ubah_pw">Save changes</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-success-light" id="ubah_pw" name="ubah_pw">Simpan Perubahan</button>
                                                     </div>
                                                 </form>
                                             </div>
